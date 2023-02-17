@@ -63,13 +63,18 @@ public class OptionFrameTesting {
 	}
 	
 	public static void ask() {
+		boolean match = false;
 		name = JOptionPane.showInputDialog(parent,"What is your name?", null);
 		if(name!=null) {
 			for(String t:negatives){
 				if(name.contains(t)) {
-					state = Option.CONFIRM;
-					mainLoop();
+					match = true;
+					break;
 				}
+			}
+			if(!match){
+				state = Option.CONFIRM;
+				mainLoop();
 			}
 		}
 		parent.setVisible(false);
