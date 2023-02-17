@@ -25,12 +25,12 @@ public class URLContentReadingTesting {
     static JFrame parent;
     static JOptionPane optionPane;
 
-    static String searchValue = "64.media.tumblr.com/";
-    static String expr = "(\u002F)*";
+    static String searchValue = "scp-wiki.wdfiles.com/";
+    //static String expr = "(\u002F)*";
     static String repl = "/";
 
     public static void main(String[] args) throws IOException {
-         url = new URL("https://www.tumblr.com/explore/trending");
+         url = new URL("https://scp-wiki.wikidot.com/scp-001");
 
 
         URLConnection connection = new URL(url.toString()).openConnection();
@@ -49,11 +49,11 @@ public class URLContentReadingTesting {
         }
         //System.out.println(sb.toString());
 
-        String middleMan = sb.toString();
+        String rawHTML = sb.toString();
         //Matcher m = Pattern.compile(expr).matcher(sb.toString());
         //String rawHTML = m.replaceAll("/");
         //String rawHTML = Pattern.compile(expr).matcher(sb).replaceAll(repl);
-        String rawHTML = middleMan.replace(expr, "/");
+        //String rawHTML = middleMan.replace(expr, "/");
         System.out.println(rawHTML);
         //System.out.println(sb.toString().replaceAll(expr, "/"));
 
