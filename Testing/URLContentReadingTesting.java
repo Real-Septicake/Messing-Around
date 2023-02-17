@@ -1,6 +1,8 @@
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -23,8 +25,12 @@ public class URLContentReadingTesting {
     static JFrame parent;
     static JOptionPane optionPane;
 
+    static String searchValue = "64.media.tumblr.com/";
+    static String expr = "(\u002F)*";
+    static String repl = "/";
+
     public static void main(String[] args) throws IOException {
-         url = new URL("https://shark.tobot.dev/"); 
+         url = new URL("https://www.tumblr.com/explore/trending");
 
 
         URLConnection connection = new URL(url.toString()).openConnection();
@@ -41,9 +47,20 @@ public class URLContentReadingTesting {
         while ((line = r.readLine()) != null) {
             sb.append(line);
         }
-        System.out.println(sb.toString());
-    
-        /*BufferedImage c = ImageIO.read(url);
+        //System.out.println(sb.toString());
+
+        String middleMan = sb.toString();
+        //Matcher m = Pattern.compile(expr).matcher(sb.toString());
+        //String rawHTML = m.replaceAll("/");
+        //String rawHTML = Pattern.compile(expr).matcher(sb).replaceAll(repl);
+        String rawHTML = middleMan.replace(expr, "/");
+        System.out.println(rawHTML);
+        //System.out.println(sb.toString().replaceAll(expr, "/"));
+
+        URL image = new URL("https://"+rawHTML.substring(rawHTML.indexOf(searchValue),rawHTML.indexOf("\"", rawHTML.indexOf(searchValue))));
+        System.out.println(image.toString());
+
+        BufferedImage c = ImageIO.read(image);
         icon = new ImageIcon(c);
 
         parent = new JFrame();
@@ -55,6 +72,6 @@ public class URLContentReadingTesting {
         button.setIcon(icon);
         parent.add(button);
         parent.pack();
-        parent.setVisible(true);*/
+        parent.setVisible(true);
     }
 }
