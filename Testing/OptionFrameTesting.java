@@ -47,13 +47,12 @@ public class OptionFrameTesting {
 		button = new JButton();
 		
 		state = Option.ASK;
-		
+
 		button.setText("click the brick");
 		button.setIcon(icon);
 		parent.add(button);
 		parent.pack();
 		parent.setVisible(true);
-		
 		
 		button.addActionListener(new ActionListener() {
 			@Override
@@ -66,9 +65,11 @@ public class OptionFrameTesting {
 	public static void ask() {
 		name = JOptionPane.showInputDialog(parent,"What is your name?", null);
 		if(name!=null) {
-			if(Arrays.binarySearch(negatives, name.toLowerCase())<0) {
-				state = Option.CONFIRM;
-				mainLoop();
+			for(String t:negatives){
+				if(name.contains(t)) {
+					state = Option.CONFIRM;
+					mainLoop();
+				}
 			}
 		}
 		parent.setVisible(false);
