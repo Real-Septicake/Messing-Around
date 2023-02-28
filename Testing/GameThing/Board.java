@@ -177,4 +177,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         coins.removeAll(collectedCoins);
     }
 
+    private boolean intersect(double[][] a, double[][] b){
+        
+    }
 }
