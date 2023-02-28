@@ -6,7 +6,6 @@ import java.awt.image.ImageObserver;
 import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -26,6 +25,7 @@ public class Coin {
         pos = new Point(x, y);
     }
 
+    //TODO: Stop shilling out to GameStop and get a different image
     private void loadImage() {
         try {
             // you can use just the filename if the image file is in your

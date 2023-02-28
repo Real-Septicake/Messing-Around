@@ -37,6 +37,7 @@ public class Player {
         pos = new Point(0, 0);
         score = 0;
 
+        //TODO: Tweak accel and decel values, movement feels jerky
         vector = new Vector(5);
         yVel = 0;
         xVel = 0;
@@ -44,6 +45,7 @@ public class Player {
         deceleration = 1;
     }
 
+    //TODO: Get a better player image, for the love of god
     private void loadImage() {
         try {
             // you can use just the filename if the image file is in your
