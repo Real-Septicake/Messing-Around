@@ -27,7 +27,7 @@ public class OptionFrameTesting {
 	
 	static URL url;
 	
-	static Icon icon = new ImageIcon("C:\\Users\\creese\\Downloads\\SINGLE-BRICK-1934784216.jpg");
+	static Icon icon = new ImageIcon("./Testing/GameThing/Images/player.png");
 	static Option state;
 	static String name;
 	
