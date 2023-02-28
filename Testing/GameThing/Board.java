@@ -92,6 +92,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // react to key up events
+        player.keyReleased(e);
     }
 
     private void drawBackground(Graphics g) {

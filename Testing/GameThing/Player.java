@@ -14,6 +14,14 @@ import javax.imageio.ImageIO;
 
 public class Player {
 
+    Vector vector;
+
+    boolean upPressed, downPressed, leftPressed, rightPressed = false;
+
+    double yVel, xVel;
+    double acceleration;
+    double deceleration;
+
     // image that represents the player's position on the board
     private BufferedImage image;
     // current position of the player on the board grid
@@ -28,6 +36,12 @@ public class Player {
         // initialize the state
         pos = new Point(0, 0);
         score = 0;
+
+        vector = new Vector(5);
+        yVel = 0;
+        xVel = 0;
+        acceleration = 2;
+        deceleration = 1;
     }
 
     private void loadImage() {
@@ -61,22 +75,41 @@ public class Player {
         // depending on which arrow key was pressed, we're going to move the player by
         // one whole tile for this input
         if (key == KeyEvent.VK_UP) {
-            pos.translate(0, -1);
+            upPressed = true;
         }
         if (key == KeyEvent.VK_RIGHT) {
-            pos.translate(1, 0);
+            rightPressed = true;
         }
         if (key == KeyEvent.VK_DOWN) {
-            pos.translate(0, 1);
+            downPressed = true;
         }
         if (key == KeyEvent.VK_LEFT) {
-            pos.translate(-1, 0);
+            leftPressed = true;
+        }
+    }
+
+    public void keyReleased(KeyEvent e){
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_UP) {
+            upPressed = false;
+        }
+        if (key == KeyEvent.VK_RIGHT) {
+            rightPressed = false;
+        }
+        if (key == KeyEvent.VK_DOWN) {
+            downPressed = false;
+        }
+        if (key == KeyEvent.VK_LEFT) {
+            leftPressed = false;
         }
     }
 
     public void tick(Dimension dim) {
         // this gets called once every tick, before the repainting process happens.
         // so we can do anything needed in here to update the state of the player.
+
+        moveTick();
 
         // prevent the player from moving off the edge of the board sideways
         if (pos.x < 0) {
@@ -104,4 +137,36 @@ public class Player {
         return pos;
     }
 
+    public void moveTick(){
+        accelDecelTick();
+        vector.update(xVel, yVel);
+        pos.setLocation(pos.getX() + vector.dx, pos.getY() + vector.dy);
+    }
+
+    public void accelDecelTick(){
+        if (upPressed) {
+            yVel -= acceleration;
+        }
+        if (rightPressed) {
+            xVel += acceleration;
+        }
+        if (downPressed) {
+            yVel += acceleration;
+        }
+        if (leftPressed) {
+            xVel -= acceleration;
+        }
+
+        if(yVel >= 0){
+            yVel = Math.max(yVel - deceleration, 0);
+        }else{
+            yVel = Math.min(yVel + deceleration, 0);
+        }
+
+        if(xVel >= 0){
+            xVel = Math.max(xVel - deceleration, 0);
+        }else{
+            xVel = Math.min(xVel + deceleration, 0);
+        }
+    }
 }
