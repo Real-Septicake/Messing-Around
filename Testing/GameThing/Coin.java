@@ -1,12 +1,14 @@
 package GameThing;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.Point;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+
+import java.awt.Rectangle;
 
 import javax.imageio.ImageIO;
 
@@ -17,12 +19,16 @@ public class Coin {
     // current position of the coin on the board grid
     private Point pos;
 
+    public Rectangle r;
+
     public Coin(int x, int y) {
         // load the assets
         loadImage();
 
         // initialize the state
         pos = new Point(x, y);
+
+        r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
     }
 
     //TODO: Stop shilling out to GameStop and get a different image

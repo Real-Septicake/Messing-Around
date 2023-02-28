@@ -167,7 +167,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         ArrayList<Coin> collectedCoins = new ArrayList<>();
         for (Coin coin : coins) {
             // if the player is on the same tile as a coin, collect it
-            if (player.getPos().equals(coin.getPos())) {
+            if (coin.r.intersects(player.r)) {
                 // give the player some points for picking this up
                 player.addScore(100);
                 collectedCoins.add(coin);
@@ -175,9 +175,5 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
         // remove collected coins from the board
         coins.removeAll(collectedCoins);
-    }
-
-    private boolean intersect(double[][] a, double[][] b){
-        
     }
 }

@@ -10,13 +10,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.awt.Dimension;
 
+import java.awt.Rectangle;
+
 import javax.imageio.ImageIO;
 
 public class Player {
 
-    Vector vector;
+    private Vector vector;
 
-    boolean upPressed, downPressed, leftPressed, rightPressed = false;
+    private boolean upPressed, downPressed, leftPressed, rightPressed = false;
+
+    public Rectangle r;
 
     double yVel, xVel;
     double acceleration;
@@ -36,6 +40,8 @@ public class Player {
         // initialize the state
         pos = new Point(0, 0);
         score = 0;
+
+        r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
         vector = new Vector(5);
@@ -67,6 +73,8 @@ public class Player {
             pos.y/*  * Board.TILE_SIZE*/, 
             observer
         );
+
+        r.setLocation(pos);
     }
     
     public void keyPressed(KeyEvent e) {
