@@ -5,8 +5,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.Point;
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 import java.awt.Rectangle;
 
@@ -36,7 +36,7 @@ public class Coin {
         try {
             // you can use just the filename if the image file is in your
             // project folder, otherwise you need to provide the file path.
-            image = ImageIO.read(new URL("https://raw.githubusercontent.com/learncodebygaming/java_2d_game/master/images/coin.png"));
+            image = ImageIO.read(new File("./Testing/GameThing/Images/coin.png"));
         } catch (IOException exc) {
             exc.printStackTrace();
         }

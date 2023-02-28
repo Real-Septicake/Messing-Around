@@ -7,7 +7,6 @@ import java.awt.image.ImageObserver;
 import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.awt.Dimension;
 
 import java.awt.Rectangle;
@@ -44,11 +43,11 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(5);
+        vector = new Vector(2);
         yVel = 0;
         xVel = 0;
-        acceleration = 2;
-        deceleration = 1;
+        acceleration = 1.25;
+        deceleration = 0.75;
     }
 
     //TODO: Get a better player image, for the love of god
@@ -56,7 +55,7 @@ public class Player {
         try {
             // you can use just the filename if the image file is in your
             // project folder, otherwise you need to provide the file path.
-            image = ImageIO.read(new URL("https://raw.githubusercontent.com/learncodebygaming/java_2d_game/master/images/player.png"));
+            image = ImageIO.read(new File("./Testing/GameThing/Images/player.png"));
         } catch (IOException exc) {
             System.out.println("Error opening image file: " + exc.getMessage());
         }
@@ -124,14 +123,18 @@ public class Player {
         // prevent the player from moving off the edge of the board sideways
         if (pos.x < 0) {
             pos.x = 0;
-        } else if (pos.x >= dim.getWidth()) {
-            pos.x = (int)dim.getWidth() - 1;
+            xVel = 0;
+        } else if (pos.x >= dim.getWidth() - image.getWidth()) {
+            pos.x = (int)dim.getWidth() - image.getWidth() - 1;
+            xVel = 0;
         }
         // prevent the player from moving off the edge of the board vertically
         if (pos.y < 0) {
             pos.y = 0;
-        } else if (pos.y >= dim.getHeight()) {
-            pos.y = (int)dim.getHeight() - 1;
+            yVel = 0;
+        } else if (pos.y >= dim.getHeight() - image.getHeight()) {
+            pos.y = (int)dim.getHeight() - image.getHeight() - 1;
+            yVel = 0;
         }
     }
 
