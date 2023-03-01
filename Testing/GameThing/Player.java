@@ -124,16 +124,16 @@ public class Player {
         if (pos.x < 0) {
             pos.x = 0;
             xVel = 0;
-        } else if (pos.x >= dim.getWidth() - image.getWidth()) {
-            pos.x = (int)dim.getWidth() - image.getWidth() - 1;
+        } else if (pos.x > dim.getWidth() - image.getWidth()) {
+            pos.x = (int)dim.getWidth() - image.getWidth();
             xVel = 0;
         }
         // prevent the player from moving off the edge of the board vertically
         if (pos.y < 0) {
             pos.y = 0;
             yVel = 0;
-        } else if (pos.y >= dim.getHeight() - image.getHeight()) {
-            pos.y = (int)dim.getHeight() - image.getHeight() - 1;
+        } else if (pos.y > dim.getHeight() - image.getHeight()) {
+            pos.y = (int)dim.getHeight() - image.getHeight();
             yVel = 0;
         }
     }
