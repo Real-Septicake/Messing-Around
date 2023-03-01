@@ -22,8 +22,10 @@ public class Player {
     public Rectangle r;
 
     double yVel, xVel;
-    double acceleration;
-    double deceleration;
+    double xDecel, yDecel;
+
+    private double baseAccel;
+    private double pressDecel, releaseDecel;
 
     // image that represents the player's position on the board
     private BufferedImage image;
@@ -32,7 +34,14 @@ public class Player {
     // keep track of the player's score
     private int score;
 
-    public Player() {
+    private int id;
+
+    /**
+     * Allows for creating up to 2 players
+     * 
+     * @param id represents player, either 0 for player 1, or 1 for player 2
+     */
+    public Player(int id) {
         // load the assets
         loadImage();
 
@@ -46,8 +55,35 @@ public class Player {
         vector = new Vector(2);
         yVel = 0;
         xVel = 0;
-        acceleration = 1.25;
-        deceleration = 0.75;
+        baseAccel = 1.25;
+        pressDecel = 0.75;
+        releaseDecel = 1.0;
+
+        this.id = id;
+    }
+
+    /**
+     * Creates a playre with the default id of 0
+     */
+    public Player(){
+        // load the assets
+        loadImage();
+
+        // initialize the state
+        pos = new Point(0, 0);
+        score = 0;
+
+        r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
+
+        //TODO: Tweak accel and decel values, movement feels jerky
+        vector = new Vector(2);
+        yVel = 0;
+        xVel = 0;
+        baseAccel = 1.25;
+        pressDecel = 0.75;
+        releaseDecel = 1.0;
+
+        this.id = 0;
     }
 
     //TODO: Get a better player image, for the love of god
@@ -81,36 +117,80 @@ public class Player {
         // keyboard event so that we can compare it to KeyEvent constants
         int key = e.getKeyCode();
         
-        // depending on which arrow key was pressed, we're going to move the player by
-        // one whole tile for this input
-        if (key == KeyEvent.VK_UP) {
-            upPressed = true;
-        }
-        if (key == KeyEvent.VK_RIGHT) {
-            rightPressed = true;
-        }
-        if (key == KeyEvent.VK_DOWN) {
-            downPressed = true;
-        }
-        if (key == KeyEvent.VK_LEFT) {
-            leftPressed = true;
+        if(id == 0){
+            if (key == KeyEvent.VK_UP) {
+                upPressed = true;
+                yDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                rightPressed = true;
+                xDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                downPressed = true;
+                yDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_LEFT) {
+                leftPressed = true;
+                xDecel = pressDecel;
+            }
+        }else{
+            if (key == KeyEvent.VK_W) {
+                upPressed = true;
+                yDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_D) {
+                rightPressed = true;
+                xDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_S) {
+                downPressed = true;
+                yDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_A) {
+                leftPressed = true;
+                xDecel = pressDecel;
+            }
         }
     }
 
     public void keyReleased(KeyEvent e){
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_UP) {
-            upPressed = false;
-        }
-        if (key == KeyEvent.VK_RIGHT) {
-            rightPressed = false;
-        }
-        if (key == KeyEvent.VK_DOWN) {
-            downPressed = false;
-        }
-        if (key == KeyEvent.VK_LEFT) {
-            leftPressed = false;
+        if(id == 0){
+            if (key == KeyEvent.VK_UP) {
+                upPressed = false;
+                yDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                rightPressed = false;
+                xDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                downPressed = false;
+                yDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_LEFT) {
+                leftPressed = false;
+                yDecel = releaseDecel;
+            }
+        }else{
+            if (key == KeyEvent.VK_W) {
+                upPressed = false;
+                yDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_D) {
+                rightPressed = false;
+                xDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_S) {
+                downPressed = false;
+                yDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_A) {
+                leftPressed = false;
+                yDecel = releaseDecel;
+            }
         }
     }
 
@@ -158,28 +238,28 @@ public class Player {
 
     public void accelDecelTick(){
         if (upPressed) {
-            yVel -= acceleration;
+            yVel -= baseAccel;
         }
         if (rightPressed) {
-            xVel += acceleration;
+            xVel += baseAccel;
         }
         if (downPressed) {
-            yVel += acceleration;
+            yVel += baseAccel;
         }
         if (leftPressed) {
-            xVel -= acceleration;
+            xVel -= baseAccel;
         }
 
         if(yVel >= 0){
-            yVel = Math.max(yVel - deceleration, 0);
+            yVel = Math.max(yVel - yDecel, 0);
         }else{
-            yVel = Math.min(yVel + deceleration, 0);
+            yVel = Math.min(yVel + yDecel, 0);
         }
 
         if(xVel >= 0){
-            xVel = Math.max(xVel - deceleration, 0);
+            xVel = Math.max(xVel - xDecel, 0);
         }else{
-            xVel = Math.min(xVel + deceleration, 0);
+            xVel = Math.min(xVel + xDecel, 0);
         }
     }
 }

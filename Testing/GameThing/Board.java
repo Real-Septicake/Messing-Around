@@ -23,8 +23,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     // case we need access to it in another method
     private Timer timer;
     // objects that appear on the game board
-    private Player player;
     private ArrayList<Coin> coins;
+    private ArrayList<Player> players;
 
     public Board() {
         // set the game board size
@@ -33,7 +33,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         setBackground(new Color(232, 232, 232));
 
         // initialize the game state
-        player = new Player();
+        players = addPlayers(2);
         coins = populateCoins();
 
         // this timer will call the actionPerformed() method every DELAY ms
@@ -48,8 +48,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         // before the graphics are redrawn.
 
         // prevent the player from disappearing off the board
-        player.tick(getPreferredSize());
-
+        for(Player player : players){
+            player.tick(getPreferredSize());
+        }
         // give the player points for collecting coins
         collectCoins();
 
@@ -72,7 +73,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         for (Coin coin : coins) {
             coin.draw(g, this);
         }
-        player.draw(g, this);
+
+        for(Player player : players){
+            player.draw(g, this);
+        }
 
         // this smooths out animations on some systems
         Toolkit.getDefaultToolkit().sync();
@@ -86,13 +90,17 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         // react to key down events
-        player.keyPressed(e);
+        for(Player player : players){
+            player.keyPressed(e);
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         // react to key up events
-        player.keyReleased(e);
+        for(Player player : players){
+            player.keyReleased(e);
+        }
     }
 
     private void drawBackground(Graphics g) {
@@ -116,7 +124,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private void drawScore(Graphics g) {
         // set the text to be displayed
-        String text = "$" + player.getScore();
+        String text = "$" + players.get(0).getScore();
         // we need to cast the Graphics to Graphics2D to draw nicer text
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(
@@ -165,15 +173,31 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private void collectCoins() {
         // allow player to pickup coins
         ArrayList<Coin> collectedCoins = new ArrayList<>();
-        for (Coin coin : coins) {
-            // if the player is on the same tile as a coin, collect it
-            if (coin.r.intersects(player.r)) {
-                // give the player some points for picking this up
-                player.addScore(100);
-                collectedCoins.add(coin);
+        for(Player player : players){
+            for (Coin coin : coins) {
+                // if the player is on the same tile as a coin, collect it
+                if (coin.r.intersects(player.r)) {
+                    // give the player some points for picking this up
+                    player.addScore(100);
+                    collectedCoins.add(coin);
+                }
             }
         }
         // remove collected coins from the board
         coins.removeAll(collectedCoins);
+    }
+
+    /**
+     * Adds a specified amount of Players
+     * 
+     * @param playerCount Amount of players added <b><i>!!MAX OF 2!!</i></b>
+     */
+    private ArrayList<Player> addPlayers(int playerCount){
+        ArrayList<Player> playersAdded = new ArrayList<>();
+
+        for(int i=0; i < playerCount; i++){
+            playersAdded.add(new Player(i));
+        }
+        return playersAdded;
     }
 }
