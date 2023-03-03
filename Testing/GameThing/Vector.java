@@ -1,11 +1,19 @@
 package GameThing;
 
+/**
+ * A class that allows for the creation and use of vectors
+ * <p><b><i> MAX LENGTH DOES WORK AS OF 3/3/23 </b>
+ * 
+ * @since 2/28/23
+ * @version 0.1.2
+ */
+//TODO: Create better methods for updating vector state
 public class Vector {
-    double maxLength;
-    double length;
-    double dy;
-    double dx;
-    double angle;
+    private double maxLength = 0;
+    private double length;
+    private double dy;
+    private double dx;
+    private double angle;
 
     /**
      * Creates an empty Vector
@@ -33,16 +41,17 @@ public class Vector {
     }
 
     private void calcLength(){
-        if(maxLength <= 0 && maxLength != (Double) null){
-            length = Math.min(calcRawLength(dx, dy), maxLength);
-            return;
-        }
+        //TODO: Fix vector length clamping
+        // if(maxLength > 0){
+        //     length = Math.min(calcRawLength(dx, dy), maxLength);
+        //     return;
+        // }
         length = calcRawLength(dx, dy);
         return;
     }
 
     private double calcRawLength(double x, double y){
-        return Math.sqrt((y * y) + (x * x));
+        return Math.sqrt((x * x) + (y * y));
     }
 
     private void calcAngle(){
