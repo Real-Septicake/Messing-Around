@@ -13,6 +13,8 @@ import java.awt.Rectangle;
 
 import javax.imageio.ImageIO;
 
+import GameThing.util.Vector;
+
 public class Player {
 
     private Vector vector;
@@ -52,12 +54,15 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(2);
+        vector = new Vector(5);
         yVel = 0;
         xVel = 0;
         baseAccel = 1.25;
+
         pressDecel = 0.75;
         releaseDecel = 1.0;
+        xDecel = releaseDecel;
+        yDecel = releaseDecel;
 
         this.id = id;
     }
@@ -233,7 +238,7 @@ public class Player {
     public void moveTick(){
         accelDecelTick();
         vector.update(xVel, yVel);
-        pos.setLocation(pos.getX() + vector.dx, pos.getY() + vector.dy);
+        pos.setLocation(pos.getX() + vector.getX(), pos.getY() + vector.getY());
     }
 
     public void accelDecelTick(){
