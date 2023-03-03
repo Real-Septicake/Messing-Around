@@ -1,4 +1,4 @@
-package GameThing;
+package GameThing.util;
 
 /**
  * A class that allows for the creation and use of vectors
@@ -7,7 +7,8 @@ package GameThing;
  * @since 2/28/23
  * @version 0.1.2
  */
-//TODO: Create better methods for updating vector state
+//TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
+//TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
 public class Vector {
     private double maxLength = 0;
     private double length;
