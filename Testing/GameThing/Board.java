@@ -12,8 +12,8 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private final int DELAY = 25;
     // controls the size of the board
     public static final int TILE_SIZE = 50;
-    public static final int ROWS = 12;
-    public static final int COLUMNS = 18;
+    public static final int ROWS = 16;
+    public static final int COLUMNS = 30;
     // controls how many coins appear on the board
     public static final int NUM_COINS = 5;
     // suppress serialization warning
@@ -34,7 +34,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
         // initialize the game state
         players = addPlayers(2);
-        coins = populateCoins();
+        //coins = populateCoins();
 
         // this timer will call the actionPerformed() method every DELAY ms
         timer = new Timer(DELAY, this);
@@ -52,7 +52,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
             player.tick(getPreferredSize());
         }
         // give the player points for collecting coins
-        collectCoins();
+        //collectCoins();
 
         // calling repaint() will trigger paintComponent() to run again,
         // which will refresh/redraw the graphics.
@@ -70,9 +70,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         // draw our graphics.
         drawBackground(g);
         drawScore(g);
-        for (Coin coin : coins) {
-            coin.draw(g, this);
-        }
+        // for (Coin coin : coins) {
+        //     coin.draw(g, this);
+        // }
 
         for(Player player : players){
             player.draw(g, this);
@@ -124,7 +124,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private void drawScore(Graphics g) {
         // set the text to be displayed
-        String text = "$" + players.get(0).getScore();
+        String text = "X: " + players.get(0).vector.getX() + "   Y: " + players.get(0).vector.getY() + "   Total: " + players.get(0).vector.length;
         // we need to cast the Graphics to Graphics2D to draw nicer text
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(
