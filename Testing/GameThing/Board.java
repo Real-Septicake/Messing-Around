@@ -124,7 +124,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private void drawScore(Graphics g) {
         // set the text to be displayed
-        String text = "X: " + players.get(0).vector.getX() + "   Y: " + players.get(0).vector.getY() + "   Total: " + players.get(0).vector.length;
+        String text = "P1 Total: " + players.get(0).vector.length + "   P1 Max: " + players.get(0).vector.maxLength + "   |   P2 Total: " + players.get(1).vector.length + "   P2 Max: " + players.get(1).vector.maxLength;
         // we need to cast the Graphics to Graphics2D to draw nicer text
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(
