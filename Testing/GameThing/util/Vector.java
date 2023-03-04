@@ -12,7 +12,7 @@ import java.awt.Dimension;
 //TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
 public class Vector {
-    double maxLength = 0;
+    public double maxLength = 0;
     public double length;
     double dy;
     double dx;
@@ -43,21 +43,8 @@ public class Vector {
         maxLength = max;
     }
 
-    private void calcLength(){
-        //TODO: Fix vector length clamping
-        if(maxLength != 0){
-            length = Math.min(calcRawLength(dx, dy), maxLength);
-        }else{
-            length = calcRawLength(dx, dy);
-        }  
-    }
-
     private double calcRawLength(double x, double y){
         return Math.sqrt((x * x) + (y * y));
-    }
-
-    private void calcAngle(){
-        angle = Math.atan2(dy, dx);
     }
 
     /**
@@ -83,6 +70,7 @@ public class Vector {
      * @return The current value of the X component of the Vector 
      */
     public double getX(){
+        updateCartesian();
         return dx;
     }
 
@@ -90,6 +78,7 @@ public class Vector {
      * @return The current value of the Y component of the Vector
      */
     public double getY(){
+        updateCartesian();
         return dy;
     }
 
