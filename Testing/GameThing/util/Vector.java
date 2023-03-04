@@ -7,7 +7,7 @@ import java.awt.Dimension;
  * <p><b><i> MAX LENGTH DOES WORK AS OF 3/3/23</b></i>
  * 
  * @since 2/28/23
- * @version 0.1.2 (3/3/23)
+ * @version 0.1.3 (3/4/23)
  */
 //TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
