@@ -17,7 +17,7 @@ import GameThing.util.Vector;
 
 public class Player {
 
-    private Vector vector;
+    Vector vector;
 
     private boolean upPressed, downPressed, leftPressed, rightPressed = false;
 
@@ -54,7 +54,7 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(5);
+        vector = new Vector(3);
         yVel = 0;
         xVel = 0;
         baseAccel = 1.25;
@@ -237,7 +237,7 @@ public class Player {
 
     public void moveTick(){
         accelDecelTick();
-        vector.update(xVel, yVel);
+        vector.updateCoord(xVel, yVel);
         pos.setLocation(pos.getX() + vector.getX(), pos.getY() + vector.getY());
     }
 
