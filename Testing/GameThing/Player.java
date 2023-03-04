@@ -23,6 +23,7 @@ public class Player {
 
     public Rectangle r;
 
+    double maxVel = 20;
     double yVel, xVel;
     double xDecel, yDecel;
 
@@ -54,7 +55,7 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(3);
+        vector = new Vector(maxVel);
         yVel = 0;
         xVel = 0;
         baseAccel = 1.25;
@@ -81,7 +82,7 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(2);
+        vector = new Vector(maxVel);
         yVel = 0;
         xVel = 0;
         baseAccel = 1.25;
