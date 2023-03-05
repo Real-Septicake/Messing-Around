@@ -1,4 +1,4 @@
-package GameThing;
+package GameThing.Objects;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -1,4 +1,4 @@
-package GameThing;
+package GameThing.Objects;
 
 import java.awt.event.KeyEvent;
 import java.awt.Graphics;
@@ -17,7 +17,7 @@ import GameThing.util.Vector;
 
 public class Player {
 
-    Vector vector;
+    public Vector vector;
 
     private boolean upPressed, downPressed, leftPressed, rightPressed = false;
 
