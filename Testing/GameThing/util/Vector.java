@@ -12,11 +12,11 @@ import java.awt.Dimension;
 //TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
 public class Vector {
-    public double maxLength = 0;
-    public double length = 0;
-    double dy = 0;
-    double dx = 0;
-    double angle = 0;
+    private double maxLength = 0;
+    private double length = 0;
+    private double dy = 0;
+    private double dx = 0;
+    private double angle = 0;
 
     /**
      * Creates an empty Vector
@@ -38,7 +38,7 @@ public class Vector {
 
     /**
      * Creates a Vector with a specified maximum length
-     * @param max Max Length of Vector
+     * @param max Max Length of Vector (Pass in {@code 0} for no maximum)
      */
     public Vector(double max){
         maxLength = max;
@@ -87,6 +87,29 @@ public class Vector {
     public double getY(){
         updateCartesian();
         return dy;
+    }
+
+    /**
+     * @return The current length of the Vector
+     */
+    public double getLength(){
+        updatePolar();
+        return length;
+    }
+
+    /**
+     * @return The current angle of the Vector 
+     */
+    public double getAngle(){
+        updatePolar();
+        return angle;
+    }
+
+    /**
+     * @return The max length of the Vector
+     */
+    public double getMax(){
+        return maxLength;
     }
 
     /**
