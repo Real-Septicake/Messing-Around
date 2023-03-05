@@ -2,6 +2,7 @@ package GameThing;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
@@ -75,6 +76,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         // for (Coin coin : coins) {
         //     coin.draw(g, this);
         // }
+
+        for(WeakReference<Pew> p : Pew.getInstances()){
+            p.get().draw(g, this);
+        }
 
         for(Player player : players){
             player.draw(g, this);

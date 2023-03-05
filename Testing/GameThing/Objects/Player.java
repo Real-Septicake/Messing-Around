@@ -140,6 +140,9 @@ public class Player {
                 leftPressed = true;
                 xDecel = pressDecel;
             }
+            if(key == KeyEvent.VK_SPACE){
+                Pew.createPew(vector.getAngle(), getPos());
+            }
         }else{
             if (key == KeyEvent.VK_W) {
                 upPressed = true;
@@ -158,6 +161,8 @@ public class Player {
                 xDecel = pressDecel;
             }
         }
+
+
     }
 
     public void keyReleased(KeyEvent e){
@@ -236,6 +241,9 @@ public class Player {
         return pos;
     }
 
+    /**
+     * Update position with Vector component values
+     */
     public void moveTick(){
         accelDecelTick();
         vector.updateCoord(xVel, yVel);
