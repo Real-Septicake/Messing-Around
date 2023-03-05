@@ -13,10 +13,10 @@ import java.awt.Dimension;
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
 public class Vector {
     public double maxLength = 0;
-    public double length;
-    double dy;
-    double dx;
-    double angle;
+    public double length = 0;
+    double dy = 0;
+    double dx = 0;
+    double angle = 0;
 
     /**
      * Creates an empty Vector
@@ -33,6 +33,7 @@ public class Vector {
     public Vector(Dimension xy){
         dx = xy.getWidth();
         dy = xy.getHeight();
+        updatePolar();
     }
 
     /**
@@ -41,6 +42,12 @@ public class Vector {
      */
     public Vector(double max){
         maxLength = max;
+    }
+
+    public Vector(double angle, double length){
+        this.length = length;
+        this.angle = angle;
+        updateCartesian();
     }
 
     private double calcRawLength(double x, double y){
@@ -82,6 +89,9 @@ public class Vector {
         return dy;
     }
 
+    /**
+     * Updates angle and length of Vector
+     */
     private void updatePolar(){
         this.angle = Math.atan2(dy, dx);
         if(maxLength != 0){
@@ -91,6 +101,9 @@ public class Vector {
         }
     }
 
+    /**
+     * Updates X and Y offsets of Vector
+     */
     private void updateCartesian(){
         this.dx = length * Math.cos(angle);
         this.dy = length * Math.sin(angle);
