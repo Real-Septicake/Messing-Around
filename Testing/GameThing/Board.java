@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
 
+import GameThing.Objects.*;
+
 public class Board extends JPanel implements ActionListener, KeyListener {
 
     // controls the delay between each tick in ms
