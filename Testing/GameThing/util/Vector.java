@@ -7,7 +7,7 @@ import java.awt.Dimension;
  * <p><b><i> MAX LENGTH DOES WORK AS OF 3/3/23</b></i>
  * 
  * @since 2/28/23
- * @version 0.1.3.1 (3/6/23)
+ * @version 0.1.4 (3/6/23)
  */
 //TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
@@ -44,10 +44,26 @@ public class Vector {
         maxLength = max;
     }
 
+    /**
+     * Create a {@code Vector} with specified angle and length
+     * @param angle Angle of new {@code Vector}
+     * @param length Length of new {@code Vector}
+     */
     public Vector(double angle, double length){
         this.length = length;
         this.angle = angle;
         updateCartesian();
+    }
+
+    /**
+     * Create a {@code Vector} with the same values as the specified {@code Vector}
+     * @param v {@code Vector} to copy the values of
+     */
+    public Vector(Vector v){
+        this.dx = v.getX();
+        this.dy = v.getY();
+        this.maxLength = v.getMax();
+        updatePolar();
     }
 
     private double calcRawLength(double x, double y){
