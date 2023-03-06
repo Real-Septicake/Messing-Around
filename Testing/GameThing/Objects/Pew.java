@@ -27,9 +27,9 @@ public class Pew {
     private static double speed = 25;
 
     /**
-     * The method that should be used to add new Pews
-     * @param angle Angle that the Pew should be at
-     * @param pos Position that the Pew should be at
+     * The method that should be used to add new {@code Pews}
+     * @param angle Angle that the {@code Pew} should be at
+     * @param pos Position that the {@code Pew} should be at
      */
     public static void createPew(double angle, Point pos){
         Pew p = new Pew(new Vector(angle, speed), pos);
@@ -41,14 +41,13 @@ public class Pew {
     }
 
     public void draw(Graphics g, ImageObserver observer){
-
-        Graphics2D rotatedImage = (Graphics2D) g;
-        rotatedImage.rotate(Math.toRadians(vector.getAngle()), image.getWidth() / 2, image.getHeight() / 2);
-        g.drawImage(image, pos.x, pos.y, observer);
+        Graphics2D rotatedImage = image.createGraphics();
+        rotatedImage.rotate(vector.getAngle(), image.getWidth() / 2, image.getHeight() / 2);
+        g.drawImage(image, this.pos.x, this.pos.y, observer);
     }
 
     /**
-     * Update position with Vector component values
+     * Update position with {@code Vector} component values
      */
     public void moveTick(){
         pos.setLocation(pos.getX() + vector.getX(), pos.getY() + vector.getY());
@@ -64,7 +63,7 @@ public class Pew {
 
     /**
      * <b><i>!!! DO NOT USE OUTSIDE CLASS !!!</b></i>
-     * @param vector The Vector to be applied to the Pew
+     * @param vector The {@code Vector} to be applied to the Pew
      */
     private Pew(Vector vector, Point pos){
         this.pos = pos;
