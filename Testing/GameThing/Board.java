@@ -37,7 +37,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
         // initialize the game state
         players = addPlayers(2);
-        //coins = populateCoins();
+        coins = populateCoins();
 
         // this timer will call the actionPerformed() method every DELAY ms
         timer = new Timer(DELAY, this);
@@ -55,7 +55,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
             player.tick(getPreferredSize());
         }
         // give the player points for collecting coins
-        //collectCoins();
+        collectCoins();
 
         // calling repaint() will trigger paintComponent() to run again,
         // which will refresh/redraw the graphics.
@@ -73,9 +73,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         // draw our graphics.
         drawBackground(g);
         drawScore(g);
-        // for (Coin coin : coins) {
-        //     coin.draw(g, this);
-        // }
+        for (Coin coin : coins) {
+            coin.draw(g, this);
+        }
 
         for(WeakReference<Pew> p : Pew.getInstances()){
             p.get().draw(g, this);
@@ -132,9 +132,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private void drawScore(Graphics g) {
         // set the text to be displayed
         String text = "P1 Total: " + players.get(0).vector.getLength()
-             + "   P1 Max: " + players.get(0).vector.getMax()
+             + "   P1 Angle: " + Math.toDegrees(players.get(0).vector.getAngle())
              + "   |   P2 Total: " + players.get(1).vector.getLength()
-             + "   P2 Max: " + players.get(1).vector.getMax();
+             + "   P2 Angle: " + Math.toDegrees(players.get(1).vector.getAngle());
         // we need to cast the Graphics to Graphics2D to draw nicer text
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(
@@ -198,9 +198,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     }
 
     /**
-     * Adds a specified amount of Players
+     * Adds a specified amount of {@code Players}
      * 
-     * @param playerCount Amount of players added <b><i>!!MAX OF 2!!</i></b>
+     * @param playerCount Amount of {@code Players} added <b><i>!! MAX OF 2 !!</i></b>
      */
     private ArrayList<Player> addPlayers(int playerCount){
         ArrayList<Player> playersAdded = new ArrayList<>();
