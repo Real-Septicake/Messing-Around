@@ -61,7 +61,7 @@ public class Pew {
     }
 
     public boolean checkEdge(Dimension dim){
-        return (pos.getX() + image.getWidth() / Math.cos(vector.getAngle()) >= dim.getWidth() || pos.getY() + image.getHeight() / Math.sin(vector.getAngle()) >= dim.getHeight());
+        return (pos.getX() >= dim.getWidth() || pos.getY() >= dim.getHeight() || pos.getX() <= 0 || pos.getY() <= 0);
     }
 
     /**

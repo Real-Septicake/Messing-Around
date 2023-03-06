@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Random;
 import javax.swing.*;
 
@@ -58,6 +60,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         for(WeakReference<Pew> p : Pew.getInstances()){
             p.get().moveTick();
         }
+
+        pewBoundaryCheck();
+
         // give the player points for collecting coins
         collectCoins();
 
@@ -82,7 +87,11 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         }
 
         for(WeakReference<Pew> p : Pew.getInstances()){
-            p.get().draw(g, this);
+            try{
+                p.get().draw(g, this);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
 
         for(Player player : players){
@@ -213,5 +222,16 @@ public class Board extends JPanel implements ActionListener, KeyListener {
             playersAdded.add(new Player(i));
         }
         return playersAdded;
+    }
+
+    private void pewBoundaryCheck(){
+        Iterator<WeakReference<Pew>> iterator = Pew.getInstances().iterator();
+        while(iterator.hasNext()){
+            WeakReference<Pew> p = iterator.next();
+            if(p.get().checkEdge(getPreferredSize())){
+                iterator.remove();
+            }
+
+        }
     }
 }
