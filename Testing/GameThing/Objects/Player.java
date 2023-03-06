@@ -40,9 +40,9 @@ public class Player {
     private int id;
 
     /**
-     * Allows for creating up to 2 players
+     * Allows for creating up to 2 {@code Players}
      * 
-     * @param id represents player, either 0 for player 1, or 1 for player 2
+     * @param id represents player id, either 0 for player 1, or 1 for player 2
      */
     public Player(int id) {
         // load the assets
@@ -69,7 +69,7 @@ public class Player {
     }
 
     /**
-     * Creates a playre with the default id of 0
+     * Creates a {@code Player} with the default id of 0
      */
     public Player(){
         // load the assets
@@ -92,7 +92,6 @@ public class Player {
         this.id = 0;
     }
 
-    //TODO: Get a better player image, for the love of god
     private void loadImage() {
         try {
             // you can use just the filename if the image file is in your
@@ -141,7 +140,7 @@ public class Player {
                 xDecel = pressDecel;
             }
             if(key == KeyEvent.VK_SPACE){
-                Pew.createPew(vector.getAngle(), getPos());
+                Pew.createPew(Math.toDegrees(vector.getAngle()), getPos());
             }
         }else{
             if (key == KeyEvent.VK_W) {
@@ -242,7 +241,7 @@ public class Player {
     }
 
     /**
-     * Update position with Vector component values
+     * Update position with {@code Vector} component values
      */
     public void moveTick(){
         accelDecelTick();
