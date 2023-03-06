@@ -54,6 +54,10 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         for(Player player : players){
             player.tick(getPreferredSize());
         }
+
+        for(WeakReference<Pew> p : Pew.getInstances()){
+            p.get().moveTick();
+        }
         // give the player points for collecting coins
         collectCoins();
 

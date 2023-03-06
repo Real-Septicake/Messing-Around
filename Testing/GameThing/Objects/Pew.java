@@ -36,6 +36,9 @@ public class Pew {
         instances.add(new java.lang.ref.WeakReference<Pew>(p));
     }
 
+    /**
+     * @return Every active instance of {@code Pew}
+     */
     public static List<WeakReference<Pew>> getInstances(){
         return instances;
     }
@@ -65,9 +68,9 @@ public class Pew {
      * <b><i>!!! DO NOT USE OUTSIDE CLASS !!!</b></i>
      * @param vector The {@code Vector} to be applied to the Pew
      */
-    private Pew(Vector vector, Point pos){
-        this.pos = pos;
-        this.vector = vector;
+    private Pew(Vector v, Point p){
+        this.pos = new Point(p);
+        this.vector = new Vector(v);
         loadImage();
     }
 
