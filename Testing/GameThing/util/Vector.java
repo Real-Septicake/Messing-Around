@@ -7,7 +7,7 @@ import java.awt.Dimension;
  * <p><b><i> MAX LENGTH DOES WORK AS OF 3/3/23</b></i>
  * 
  * @since 2/28/23
- * @version 0.1.3 (3/4/23)
+ * @version 0.1.3.1 (3/6/23)
  */
 //TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
@@ -19,13 +19,13 @@ public class Vector {
     private double angle = 0;
 
     /**
-     * Creates an empty Vector
+     * Creates an empty {@code Vector}
      */
     public Vector(){
     }
 
     /**
-     * Creates a Vector with specified x and y offsets
+     * Creates a {@code Vector} with specified x and y offsets
      * 
      * @param x X Offset
      * @param y Y Offset
@@ -37,8 +37,8 @@ public class Vector {
     }
 
     /**
-     * Creates a Vector with a specified maximum length
-     * @param max Max Length of Vector (Pass in {@code 0} for no maximum)
+     * Creates a {@code Vector} with a specified maximum length
+     * @param max Max Length of {@code Vector} (Pass in 0 for no maximum)
      */
     public Vector(double max){
         maxLength = max;
@@ -55,7 +55,7 @@ public class Vector {
     }
 
     /**
-     * Update Vector with new x and y offsets
+     * Update {@code Vector} with new x and y offsets
      * 
      * @param x New X Offset
      * @param y New y Offset
@@ -74,7 +74,7 @@ public class Vector {
     }
 
     /**
-     * @return The current value of the X component of the Vector 
+     * @return The current value of the X component of the {@code Vector} 
      */
     public double getX(){
         updateCartesian();
@@ -82,7 +82,7 @@ public class Vector {
     }
 
     /**
-     * @return The current value of the Y component of the Vector
+     * @return The current value of the Y component of the {@code Vector}
      */
     public double getY(){
         updateCartesian();
@@ -90,7 +90,7 @@ public class Vector {
     }
 
     /**
-     * @return The current length of the Vector
+     * @return The current length of the {@code Vector}
      */
     public double getLength(){
         updatePolar();
@@ -98,7 +98,7 @@ public class Vector {
     }
 
     /**
-     * @return The current angle of the Vector 
+     * @return The current angle of the {@code Vector} 
      */
     public double getAngle(){
         updatePolar();
@@ -106,14 +106,14 @@ public class Vector {
     }
 
     /**
-     * @return The max length of the Vector
+     * @return The max length of the {@code Vector}
      */
     public double getMax(){
         return maxLength;
     }
 
     /**
-     * Updates angle and length of Vector
+     * Updates angle and length of {@code Vector}
      */
     private void updatePolar(){
         this.angle = Math.atan2(dy, dx);
@@ -125,7 +125,7 @@ public class Vector {
     }
 
     /**
-     * Updates X and Y offsets of Vector
+     * Updates X and Y offsets of {@code Vector}
      */
     private void updateCartesian(){
         this.dx = length * Math.cos(angle);
