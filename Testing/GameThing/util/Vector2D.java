@@ -18,13 +18,13 @@ public class Vector2D {
     private double angle = 0;
 
     /**
-     * Creates an empty {@code Vector}
+     * Creates an empty {@code Vector2D}
      */
     public Vector2D(){
     }
 
     /**
-     * Creates a {@code Vector} with specified x and y offsets
+     * Creates a {@code Vector2D} with specified x and y offsets
      * 
      * @param x X Offset
      * @param y Y Offset
@@ -36,17 +36,17 @@ public class Vector2D {
     }
 
     /**
-     * Creates a {@code Vector} with a specified maximum length
-     * @param max Max Length of {@code Vector} (Pass in 0 for no maximum)
+     * Creates a {@code Vector2D} with a specified maximum length
+     * @param max Max Length of {@code Vector2D} (Pass in 0 for no maximum)
      */
     public Vector2D(double max){
         maxLength = max;
     }
 
     /**
-     * Create a {@code Vector} with specified angle and length
-     * @param angle Angle of new {@code Vector}
-     * @param length Length of new {@code Vector}
+     * Create a {@code Vector2D} with specified angle and length
+     * @param angle Angle of new {@code Vector2D}
+     * @param length Length of new {@code Vector2D}
      */
     public Vector2D(double angle, double length){
         this.length = length;
@@ -55,8 +55,8 @@ public class Vector2D {
     }
 
     /**
-     * Create a {@code Vector} with the same values as the specified {@code Vector}
-     * @param v {@code Vector} to copy the values of
+     * Create a {@code Vector2D} with the same values as the specified {@code Vector2D}
+     * @param v {@code Vector2D} to copy the values from
      */
     public Vector2D(Vector2D v){
         this.dx = v.getX();
@@ -70,7 +70,7 @@ public class Vector2D {
     }
 
     /**
-     * Update this {@code Vector} with new x and y offsets
+     * Update this {@code Vector2D} with new x and y offsets
      * 
      * @param x New X Offset
      * @param y New y Offset
@@ -82,7 +82,7 @@ public class Vector2D {
     }
 
     /**
-     * Update this {@code Vector} with new angle and length values
+     * Update this {@code Vector2D} with new angle and length values
      * 
      * @param angle New angle value
      * @param length New length value
@@ -95,7 +95,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current value of the X component of this {@code Vector} 
+     * @return The current value of the X component of this {@code Vector2D} 
      */
     public double getX(){
         updateCartesian();
@@ -103,7 +103,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current value of the Y component of this {@code Vector}
+     * @return The current value of the Y component of this {@code Vector2D}
      */
     public double getY(){
         updateCartesian();
@@ -111,7 +111,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current length of this {@code Vector}
+     * @return The current length of this {@code Vector2D}
      */
     public double getLength(){
         updatePolar();
@@ -119,7 +119,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current angle of this {@code Vector} 
+     * @return The current angle of this {@code Vector2D} 
      */
     public double getAngle(){
         updatePolar();
@@ -127,14 +127,14 @@ public class Vector2D {
     }
 
     /**
-     * @return The max length of this {@code Vector}
+     * @return The max length of this {@code Vector2D}
      */
     public double getMax(){
         return maxLength;
     }
 
     /**
-     * Updates the angle and length of this {@code Vector}
+     * Updates the angle and length of this {@code Vector2D}
      */
     private void updatePolar(){
         this.angle = Math.atan2(dy, dx);
@@ -146,7 +146,7 @@ public class Vector2D {
     }
 
     /**
-     * Updates X and Y offsets of {@code Vector}
+     * Updates X and Y offsets of {@code Vector2D}
      */
     private void updateCartesian(){
         this.dx = length * Math.cos(angle);
