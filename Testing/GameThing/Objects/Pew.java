@@ -45,8 +45,8 @@ public class Pew {
 
     public void draw(Graphics g, ImageObserver observer){
         Graphics2D rotatedImage = image.createGraphics();
-        rotatedImage.rotate(vector.getAngle(), image.getWidth() / 2, image.getHeight() / 2);
-        g.drawImage(image, this.pos.x, this.pos.y, observer);
+        rotatedImage.rotate(vector.getAngle(), image.getWidth(), image.getHeight());
+        g.drawImage(image, pos.x, pos.y, observer);
     }
 
     /**

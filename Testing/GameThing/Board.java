@@ -23,6 +23,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     public static final int NUM_COINS = 5;
     // suppress serialization warning
     private static final long serialVersionUID = 490905409104883233L;
+
+    //TODO: Get a better solution to compensating for the window's location
+    public static int X_POS, Y_POS;
     
     // keep a reference to the timer object that triggers actionPerformed() in
     // case we need access to it in another method
@@ -32,6 +35,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private ArrayList<Player> players;
 
     public Board() {
+        X_POS = getX();
+        Y_POS = getY();
+
         // set the game board size
         setPreferredSize(new Dimension(TILE_SIZE * COLUMNS, TILE_SIZE * ROWS));
         // set the game board background color
@@ -48,11 +54,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // this method is called by the timer every DELAY ms.
-        // use this space to update the state of your game or animation
-        // before the graphics are redrawn.
 
-        // prevent the player from disappearing off the board
         for(Player player : players){
             player.tick(getPreferredSize());
         }
@@ -145,9 +147,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private void drawScore(Graphics g) {
         // set the text to be displayed
         String text = "P1 Total: " + players.get(0).vector.getLength()
-             + "   P1 Angle: " + Math.toDegrees(players.get(0).vector.getAngle())
-             + "   |   P2 Total: " + players.get(1).vector.getLength()
-             + "   P2 Angle: " + Math.toDegrees(players.get(1).vector.getAngle());
+             + "   P1 Angle: " + Math.toDegrees(players.get(0).angleToMousePointer(players.get(0).getPos()))
+             + "   |   X: " + (MouseInfo.getPointerInfo().getLocation().getX() - players.get(0).getPos().getX())
+             + "   Y: " + (MouseInfo.getPointerInfo().getLocation().getY() - players.get(0).getPos().getY());
         // we need to cast the Graphics to Graphics2D to draw nicer text
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(

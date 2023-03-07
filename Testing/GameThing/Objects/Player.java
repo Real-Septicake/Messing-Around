@@ -2,9 +2,11 @@ package GameThing.Objects;
 
 import java.awt.event.KeyEvent;
 import java.awt.Graphics;
+import java.awt.MouseInfo;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.Point;
+import java.awt.PointerInfo;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Dimension;
@@ -13,6 +15,7 @@ import java.awt.Rectangle;
 
 import javax.imageio.ImageIO;
 
+import GameThing.Board;
 import GameThing.util.Vector2D;
 
 public class Player {
@@ -123,26 +126,6 @@ public class Player {
         int key = e.getKeyCode();
         
         if(id == 0){
-            if (key == KeyEvent.VK_UP) {
-                upPressed = true;
-                yDecel = pressDecel;
-            }
-            if (key == KeyEvent.VK_RIGHT) {
-                rightPressed = true;
-                xDecel = pressDecel;
-            }
-            if (key == KeyEvent.VK_DOWN) {
-                downPressed = true;
-                yDecel = pressDecel;
-            }
-            if (key == KeyEvent.VK_LEFT) {
-                leftPressed = true;
-                xDecel = pressDecel;
-            }
-            if(key == KeyEvent.VK_SPACE){
-                Pew.createPew(Math.toDegrees(vector.getAngle()), getPos());
-            }
-        }else{
             if (key == KeyEvent.VK_W) {
                 upPressed = true;
                 yDecel = pressDecel;
@@ -156,6 +139,26 @@ public class Player {
                 yDecel = pressDecel;
             }
             if (key == KeyEvent.VK_A) {
+                leftPressed = true;
+                xDecel = pressDecel;
+            }
+            if(key == KeyEvent.VK_SPACE){
+                Pew.createPew(angleToMousePointer(pos), getPos());
+            }
+        }else{
+            if (key == KeyEvent.VK_UP) {
+                upPressed = true;
+                yDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                rightPressed = true;
+                xDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                downPressed = true;
+                yDecel = pressDecel;
+            }
+            if (key == KeyEvent.VK_LEFT) {
                 leftPressed = true;
                 xDecel = pressDecel;
             }
@@ -168,23 +171,6 @@ public class Player {
         int key = e.getKeyCode();
 
         if(id == 0){
-            if (key == KeyEvent.VK_UP) {
-                upPressed = false;
-                yDecel = releaseDecel;
-            }
-            if (key == KeyEvent.VK_RIGHT) {
-                rightPressed = false;
-                xDecel = releaseDecel;
-            }
-            if (key == KeyEvent.VK_DOWN) {
-                downPressed = false;
-                yDecel = releaseDecel;
-            }
-            if (key == KeyEvent.VK_LEFT) {
-                leftPressed = false;
-                yDecel = releaseDecel;
-            }
-        }else{
             if (key == KeyEvent.VK_W) {
                 upPressed = false;
                 yDecel = releaseDecel;
@@ -198,6 +184,23 @@ public class Player {
                 yDecel = releaseDecel;
             }
             if (key == KeyEvent.VK_A) {
+                leftPressed = false;
+                yDecel = releaseDecel;
+            }
+        }else{
+            if (key == KeyEvent.VK_UP) {
+                upPressed = false;
+                yDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_RIGHT) {
+                rightPressed = false;
+                xDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_DOWN) {
+                downPressed = false;
+                yDecel = releaseDecel;
+            }
+            if (key == KeyEvent.VK_LEFT) {
                 leftPressed = false;
                 yDecel = releaseDecel;
             }
@@ -249,6 +252,9 @@ public class Player {
         pos.setLocation(pos.getX() + vector.getX(), pos.getY() + vector.getY());
     }
 
+    /**
+     * Deals with movement values
+     */
     public void accelDecelTick(){
         if (upPressed) {
             yVel -= baseAccel;
@@ -274,5 +280,10 @@ public class Player {
         }else{
             xVel = Math.min(xVel + xDecel, 0);
         }
+    }
+
+    public double angleToMousePointer(Point p1){
+        Point p2 = MouseInfo.getPointerInfo().getLocation();
+        return Math.atan2(p2.getY() - p1.getY() + Board.Y_POS, p2.getX() - p1.getX() + Board.X_POS);
     }
 }
