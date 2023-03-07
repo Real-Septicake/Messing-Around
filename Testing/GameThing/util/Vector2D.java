@@ -3,15 +3,14 @@ package GameThing.util;
 import java.awt.Dimension;
 
 /**
- * A class that allows for the creation and use of vectors
- * <p><b><i> MAX LENGTH DOES WORK AS OF 3/3/23</b></i>
+ * A class that allows for the creation and use of mathematical vectors
  * 
  * @since 2/28/23
  * @version 0.1.4 (3/6/23)
  */
 //TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
 //TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
-public class Vector {
+public class Vector2D {
     private double maxLength = 0;
     private double length = 0;
     private double dy = 0;
@@ -21,7 +20,7 @@ public class Vector {
     /**
      * Creates an empty {@code Vector}
      */
-    public Vector(){
+    public Vector2D(){
     }
 
     /**
@@ -30,7 +29,7 @@ public class Vector {
      * @param x X Offset
      * @param y Y Offset
      */
-    public Vector(Dimension xy){
+    public Vector2D(Dimension xy){
         dx = xy.getWidth();
         dy = xy.getHeight();
         updatePolar();
@@ -40,7 +39,7 @@ public class Vector {
      * Creates a {@code Vector} with a specified maximum length
      * @param max Max Length of {@code Vector} (Pass in 0 for no maximum)
      */
-    public Vector(double max){
+    public Vector2D(double max){
         maxLength = max;
     }
 
@@ -49,7 +48,7 @@ public class Vector {
      * @param angle Angle of new {@code Vector}
      * @param length Length of new {@code Vector}
      */
-    public Vector(double angle, double length){
+    public Vector2D(double angle, double length){
         this.length = length;
         this.angle = angle;
         updateCartesian();
@@ -59,7 +58,7 @@ public class Vector {
      * Create a {@code Vector} with the same values as the specified {@code Vector}
      * @param v {@code Vector} to copy the values of
      */
-    public Vector(Vector v){
+    public Vector2D(Vector2D v){
         this.dx = v.getX();
         this.dy = v.getY();
         this.maxLength = v.getMax();
@@ -71,7 +70,7 @@ public class Vector {
     }
 
     /**
-     * Update {@code Vector} with new x and y offsets
+     * Update this {@code Vector} with new x and y offsets
      * 
      * @param x New X Offset
      * @param y New y Offset
@@ -82,6 +81,12 @@ public class Vector {
         updatePolar();
     }
 
+    /**
+     * Update this {@code Vector} with new angle and length values
+     * 
+     * @param angle New angle value
+     * @param length New length value
+     */
     public void updateAngle(double angle, double length){
         this.angle = angle;
         this.length = Math.min(length, maxLength);
@@ -90,7 +95,7 @@ public class Vector {
     }
 
     /**
-     * @return The current value of the X component of the {@code Vector} 
+     * @return The current value of the X component of this {@code Vector} 
      */
     public double getX(){
         updateCartesian();
@@ -98,7 +103,7 @@ public class Vector {
     }
 
     /**
-     * @return The current value of the Y component of the {@code Vector}
+     * @return The current value of the Y component of this {@code Vector}
      */
     public double getY(){
         updateCartesian();
@@ -106,7 +111,7 @@ public class Vector {
     }
 
     /**
-     * @return The current length of the {@code Vector}
+     * @return The current length of this {@code Vector}
      */
     public double getLength(){
         updatePolar();
@@ -114,7 +119,7 @@ public class Vector {
     }
 
     /**
-     * @return The current angle of the {@code Vector} 
+     * @return The current angle of this {@code Vector} 
      */
     public double getAngle(){
         updatePolar();
@@ -122,14 +127,14 @@ public class Vector {
     }
 
     /**
-     * @return The max length of the {@code Vector}
+     * @return The max length of this {@code Vector}
      */
     public double getMax(){
         return maxLength;
     }
 
     /**
-     * Updates angle and length of {@code Vector}
+     * Updates the angle and length of this {@code Vector}
      */
     private void updatePolar(){
         this.angle = Math.atan2(dy, dx);

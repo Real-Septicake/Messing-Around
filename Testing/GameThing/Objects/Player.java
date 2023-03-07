@@ -13,11 +13,11 @@ import java.awt.Rectangle;
 
 import javax.imageio.ImageIO;
 
-import GameThing.util.Vector;
+import GameThing.util.Vector2D;
 
 public class Player {
 
-    public Vector vector;
+    public Vector2D vector;
 
     private boolean upPressed, downPressed, leftPressed, rightPressed = false;
 
@@ -55,7 +55,7 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(maxVel);
+        vector = new Vector2D(maxVel);
         yVel = 0;
         xVel = 0;
         baseAccel = 1.25;
@@ -82,7 +82,7 @@ public class Player {
         r = new Rectangle(pos, new Dimension(image.getWidth(), image.getHeight()));
 
         //TODO: Tweak accel and decel values, movement feels jerky
-        vector = new Vector(maxVel);
+        vector = new Vector2D(maxVel);
         yVel = 0;
         xVel = 0;
         baseAccel = 1.25;
