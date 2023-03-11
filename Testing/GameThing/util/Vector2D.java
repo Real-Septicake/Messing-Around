@@ -3,13 +3,11 @@ package GameThing.util;
 import java.awt.Dimension;
 
 /**
- * A class that allows for the creation and use of mathematical vectors
+ * A class that allows for the creation and use of 2D mathematical vectors
  * 
  * @since 2/28/23
- * @version 0.1.4 (3/6/23)
+ * @version 1.0 (3/10/23)
  */
-//TODO: Create better methods for updating vector state, might be worth taking it directly from Greenfoot
-//TODO: Might be worth trying to differentiate 2d vectors and 3d vectors in the future, probably thinking too far ahead
 public class Vector2D {
     private double maxLength = 0;
     private double length = 0;
@@ -18,16 +16,13 @@ public class Vector2D {
     private double angle = 0;
 
     /**
-     * Creates an empty {@code Vector2D}
+     * Creates a {@code Vector2D} with all values set to 0
      */
     public Vector2D(){
     }
 
     /**
-     * Creates a {@code Vector2D} with specified x and y offsets
-     * 
-     * @param x X Offset
-     * @param y Y Offset
+     * Creates a {@code Vector2D} with {@code X}, and {@code Y} offsets specified by the {@code Dimension}
      */
     public Vector2D(Dimension xy){
         dx = xy.getWidth();
@@ -36,8 +31,8 @@ public class Vector2D {
     }
 
     /**
-     * Creates a {@code Vector2D} with a specified maximum length
-     * @param max Max Length of {@code Vector2D} (Pass in 0 for no maximum)
+     * Creates a {@code Vector2D} with a specified {@code maxLength} value
+     * @param max {@code maxLength} value
      */
     public Vector2D(double max){
         maxLength = max;
@@ -70,24 +65,24 @@ public class Vector2D {
     }
 
     /**
-     * Update this {@code Vector2D} with new x and y offsets
+     * Update this {@code Vector2D} with new {@code X} and {@code Y} offsets
      * 
-     * @param x New X Offset
-     * @param y New y Offset
+     * @param x New {@code X} offset
+     * @param y New {@code Y} offset
      */
-    public void updateCoord(double x, double y){
+    public void updateCartesianCoords(double x, double y){
         dx = x;
         dy = y;
         updatePolar();
     }
 
     /**
-     * Update this {@code Vector2D} with new angle and length values
+     * Update this {@code Vector2D} with new {@code angle} and {@code length} values
      * 
-     * @param angle New angle value
-     * @param length New length value
+     * @param angle New {@code angle} value
+     * @param length New {@code length} value
      */
-    public void updateAngle(double angle, double length){
+    public void updatePolarCoords(double angle, double length){
         this.angle = angle;
         this.length = Math.min(length, maxLength);
         updateCartesian();
@@ -95,7 +90,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current value of the X component of this {@code Vector2D} 
+     * @return The current value of the {@code X} component of this {@code Vector2D} 
      */
     public double getX(){
         updateCartesian();
@@ -103,7 +98,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current value of the Y component of this {@code Vector2D}
+     * @return The current value of the {@code Y} component of this {@code Vector2D}
      */
     public double getY(){
         updateCartesian();
@@ -111,7 +106,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current length of this {@code Vector2D}
+     * @return The current {@code length} of this {@code Vector2D}
      */
     public double getLength(){
         updatePolar();
@@ -119,7 +114,7 @@ public class Vector2D {
     }
 
     /**
-     * @return The current angle of this {@code Vector2D} 
+     * @return The current {@code angle} of this {@code Vector2D} 
      */
     public double getAngle(){
         updatePolar();
@@ -127,14 +122,14 @@ public class Vector2D {
     }
 
     /**
-     * @return The max length of this {@code Vector2D}
+     * @return The {@code maxLength} of this {@code Vector2D}
      */
     public double getMax(){
         return maxLength;
     }
 
     /**
-     * Updates the angle and length of this {@code Vector2D}
+     * Updates the {@code angle} and {@code length} of this {@code Vector2D}
      */
     private void updatePolar(){
         this.angle = Math.atan2(dy, dx);
@@ -146,7 +141,7 @@ public class Vector2D {
     }
 
     /**
-     * Updates X and Y offsets of {@code Vector2D}
+     * Updates {@code X} and {@code Y} offsets of {@code Vector2D}
      */
     private void updateCartesian(){
         this.dx = length * Math.cos(angle);

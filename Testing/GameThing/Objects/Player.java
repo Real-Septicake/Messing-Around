@@ -248,7 +248,7 @@ public class Player {
      */
     public void moveTick(){
         accelDecelTick();
-        vector.updateCoord(xVel, yVel);
+        vector.updateCartesianCoords(xVel, yVel);
         pos.setLocation(pos.getX() + vector.getX(), pos.getY() + vector.getY());
     }
 
