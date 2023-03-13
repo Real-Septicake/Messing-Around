@@ -5,19 +5,44 @@ import java.awt.Dimension;
 /**
  * A class that allows for the creation and use of 3D mathematical vectors
  * 
- * @since 3/10/23
- * @version 1.0 (3/10/23)
+ * @since 1.0
+ * @version 1.1 (3/13/23)
  */
+//TODO: Seperate Double and Float precision
 public class Vector3D {
+
+    /**
+     * Maximum allowed {@code length} of the {@code Vector3D} object
+     * 
+     * <p>0 is the default value and does not restrict the {@code length}</p>
+     */
     private double maxLength = 0;
+
+    /**
+     * Magnitude of the {@code Vector3D} object
+     */
     private double length = 0;
+
+    /**
+     * X component of the {@code Vector3D} object
+     */
     private double dx = 0;
+
+    /**
+     * Y component of the {@code Vector3D} object
+     */
     private double dy = 0;
+
+    /**
+     * Z component of the {@code Vector3D} object
+     */
     private double dz = 0;
+
     /**
      * Angle on the XZ plane rising from X
      */
     private double theta = 0;
+
     /**
      * Angle on the YZ plane rising from Z
      */
@@ -25,6 +50,8 @@ public class Vector3D {
 
     /**
      * Creates a {@code Vector3D} with all values set to 0
+     *
+     * @since 1.0
      */
     public Vector3D(){
     }
@@ -34,6 +61,8 @@ public class Vector3D {
      * @param length {@code length} value
      * @param theta {@code theta} vlue
      * @param phi {@code phi} value
+     *
+     * @since 1.0
      */
     public Vector3D(double length, double theta, double phi){
         this.length = length;
@@ -46,7 +75,10 @@ public class Vector3D {
      * Creates a {@code Vector3D} with {@code X} and {@code Y} offsets specified by the {@code Dimension}, and a {@code Z} offset
      * @param xy {@code Dimension} specifying the {@code X} and {@code Y} offsets
      * @param z {@code Z} offset
+     *
+     * @since 1.0
      */
+    //TODO: Find a way to avoid the use of a Dimension object
     public Vector3D(Dimension xy, double z){
         dx = xy.getWidth();
         dy = xy.getHeight();
@@ -57,6 +89,8 @@ public class Vector3D {
     /**
      * Creates a {@code Vector3D} with a specified {@code maxLength} value
      * @param max {@code maxLength} value
+     *
+     * @since 1.0
      */
     public Vector3D(double max){
         maxLength = max;
