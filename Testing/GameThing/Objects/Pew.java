@@ -32,7 +32,7 @@ public class Pew {
      * @param pos Position that the {@code Pew} should be at
      */
     public static void createPew(double angle, Point pos){
-        Pew p = new Pew(new Vector2D(angle, speed), pos);
+        Pew p = new Pew(new Vector2D((int) speed, angle), pos);
         instances.add(new java.lang.ref.WeakReference<Pew>(p));
     }
 
