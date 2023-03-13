@@ -146,7 +146,7 @@ public class Board extends JPanel implements ActionListener, KeyListener {
 
     private void drawScore(Graphics g) {
         // set the text to be displayed
-        String text = "P1 Total: " + players.get(0).vector.getLength()
+        String text = "P1 Total: " + players.get(0).vector.getMagnitude()
              + "   P1 Angle: " + Math.toDegrees(players.get(0).angleToMousePointer(players.get(0).getPos()))
              + "   |   X: " + (MouseInfo.getPointerInfo().getLocation().getX() - players.get(0).getPos().getX())
              + "   Y: " + (MouseInfo.getPointerInfo().getLocation().getY() - players.get(0).getPos().getY());

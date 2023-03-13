@@ -4,24 +4,24 @@ package GameThing.util;
  * A class that allows for the creation and use of 3D mathematical vectors
  * 
  * @since 1.0
- * @version 1.1 (3/13/23)
+ * @version 1.2 (3/13/23)
  */
 // TODO: Seperate Double and Float precision
 public class Vector3D {
 
     /**
-     * Maximum allowed {@code length} of the {@code Vector3D} object
+     * Maximum allowed {@code magnitude} of the {@code Vector3D} object
      * 
      * <p>
-     * 0 is the default value and does not restrict the {@code length}
+     * 0 is the default value and does not restrict the {@code magnitude}
      * </p>
      */
-    private double maxLength = 0;
+    private double maxMagnitude = 0;
 
     /**
      * Magnitude of the {@code Vector3D} object
      */
-    private double length = 0;
+    private double magnitude = 0;
 
     /**
      * X component of the {@code Vector3D} object
@@ -57,17 +57,17 @@ public class Vector3D {
     }
 
     /**
-     * Creates a {@code Vector3D} with specified {@code length}, {@code theta}, and
+     * Creates a {@code Vector3D} with specified {@code magnitude}, {@code theta}, and
      * {@code phi} values
      * 
-     * @param length {@code length} value
+     * @param magnitude {@code magnitude} value
      * @param theta  {@code theta} vlue
      * @param phi    {@code phi} value
      *
      * @since 1.0
      */
-    public Vector3D(int length, double theta, double phi) {
-        this.length = length;
+    public Vector3D(int magnitude, double theta, double phi) {
+        this.magnitude = magnitude;
         this.theta = theta;
         this.phi = phi;
         updateCartesian();
@@ -92,12 +92,12 @@ public class Vector3D {
     /**
      * Creates a {@code Vector3D} with a specified {@code maxLength} value
      * 
-     * @param max {@code maxLength} value
+     * @param max {@code maxMagnitude} value
      *
      * @since 1.0
      */
     public Vector3D(double max) {
-        maxLength = max;
+        maxMagnitude = max;
     }
 
     public Vector3D(Vector3D v) {
@@ -112,14 +112,14 @@ public class Vector3D {
     }
 
     /**
-     * Updates the {@code length}, {@code theta}, and {@code phi} values of this
+     * Updates the {@code magnitude}, {@code theta}, and {@code phi} values of this
      * {@code Vector3D}
      */
     private void updateSpherical() {
-        if (maxLength != 0) {
-            length = Math.min(calcRawLength(dx, dy, dz), maxLength);
+        if (maxMagnitude != 0) {
+            magnitude = Math.min(calcRawLength(dx, dy, dz), maxMagnitude);
         } else {
-            length = calcRawLength(dx, dy, dz);
+            magnitude = calcRawLength(dx, dy, dz);
         }
         theta = Math.acos(dz / (Math.sqrt((dx * dx) + (dy * dy) + (dz * dz))));
         phi = Math.signum(dy) * Math.acos(dx / Math.sqrt((dx * dx) + (dy * dy)));
@@ -130,24 +130,24 @@ public class Vector3D {
      * {@code Vector3D}
      */
     private void updateCartesian() {
-        dx = length * Math.sin(theta) * Math.cos(phi);
-        dy = length * Math.sin(theta) * Math.sin(phi);
-        dz = length * Math.cos(theta);
+        dx = magnitude * Math.sin(theta) * Math.cos(phi);
+        dy = magnitude * Math.sin(theta) * Math.sin(phi);
+        dz = magnitude * Math.cos(theta);
     }
 
     /**
      * Update this {@code Vector3D} with new {@code length}, {@code theta}, and
      * {@code phi} values
      * 
-     * @param length New {@code length} value
+     * @param magnitude New {@code magnitude} value
      * @param theta  New {@code theta} value
      * @param phi    New {@code phi} value
      */
-    public void updateSphericalCoords(double length, double theta, double phi) {
-        if (maxLength != 0) {
-            this.length = Math.min(length, maxLength);
+    public void updateSphericalCoords(double magnitude, double theta, double phi) {
+        if (maxMagnitude != 0) {
+            this.magnitude = Math.min(magnitude, maxMagnitude);
         } else {
-            this.length = length;
+            this.magnitude = magnitude;
         }
         this.theta = theta;
         this.phi = phi;
@@ -196,7 +196,7 @@ public class Vector3D {
     /**
      * {@code Phi} is the angle on the YZ plane rising from Z
      * 
-     * @return The current value of this {@code Vector3D}'s {@code Phi} angle
+     * @return The current value of this {@code Vector3D}'s {@code phi} angle
      */
     public double getPhi() {
         updateSpherical();
@@ -206,7 +206,7 @@ public class Vector3D {
     /**
      * {@code Theta} is the angle on the XZ plane rising from X
      * 
-     * @return The current value of this {@code Vector3D}'s {@code Theta} angle
+     * @return The current value of this {@code Vector3D}'s {@code theta} angle
      */
     public double getTheta() {
         updateSpherical();
@@ -214,17 +214,17 @@ public class Vector3D {
     }
 
     /**
-     * @return The current length of this {@code Vector3D}
+     * @return The current {@code magnitude} of this {@code Vector3D}
      */
-    public double getLength() {
+    public double getMagnitude() {
         updateCartesian();
-        return length;
+        return magnitude;
     }
 
     /**
-     * @return The maximum length of this {@code Vector3D}
+     * @return The {@code maxMagnitude} of this {@code Vector3D}
      */
     public double getMax() {
-        return maxLength;
+        return maxMagnitude;
     }
 }

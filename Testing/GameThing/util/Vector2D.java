@@ -4,24 +4,24 @@ package GameThing.util;
  * A class that allows for the creation and use of 2D mathematical vectors
  * 
  * @since 1.0
- * @version 1.1 (3/13/23)
+ * @version 1.2 (3/13/23)
  */
 // TODO: Seperate Double and Float precision
 public class Vector2D {
 
     /**
-     * Maximum allowed {@code length} of the {@code Vector2D} object
+     * Maximum allowed {@code magnitude} of the {@code Vector2D} object
      * 
      * <p>
-     * 0 is the default value and does not restrict the {@code length}
+     * 0 is the default value and does not restrict the {@code magnitude}
      * </p>
      */
-    private double maxLength = 0;
+    private double maxMagnitude = 0;
 
     /**
      * Magnitude of the {@code Vector2D} object
      */
-    private double length = 0;
+    private double magnitude = 0;
 
     /**
      * X component of the {@code Vector2D} object
@@ -47,15 +47,15 @@ public class Vector2D {
     }
 
     /**
-     * Create a {@code Vector2D} with specified angle and length
+     * Create a {@code Vector2D} with specified {@code angle} and {@code magnitude}
      * 
      * @param angle  Angle of new {@code Vector2D}
-     * @param length Length of new {@code Vector2D}
+     * @param magniture Magnitude of new {@code Vector2D}
      *
      * @since 1.0
      */
-    public Vector2D(int length, double angle) {
-        this.length = length;
+    public Vector2D(int magnitude, double angle) {
+        this.magnitude = magnitude;
         this.angle = angle;
         updateCartesian();
     }
@@ -77,12 +77,12 @@ public class Vector2D {
     /**
      * Creates a {@code Vector2D} with a specified {@code maxLength} value
      * 
-     * @param max {@code maxLength} value
+     * @param max {@code maxMagnitude} value
      *
      * @since 1.0
      */
     public Vector2D(double max) {
-        maxLength = max;
+        maxMagnitude = max;
     }
 
     /**
@@ -94,13 +94,13 @@ public class Vector2D {
      * @since 1.0
      */
     public Vector2D(Vector2D v) {
-        this.dx = v.getX();
-        this.dy = v.getY();
-        this.maxLength = v.getMax();
+        dx = v.getX();
+        dy = v.getY();
+        maxMagnitude = v.getMax();
         updatePolar();
     }
 
-    private double calcRawLength(double x, double y) {
+    private double calcRawMagnitude(double x, double y) {
         return Math.sqrt((x * x) + (y * y));
     }
 
@@ -119,16 +119,16 @@ public class Vector2D {
     }
 
     /**
-     * Update this {@code Vector2D} with new {@code angle} and {@code length} values
+     * Update this {@code Vector2D} with new {@code angle} and {@code magnitude} values
      * 
      * @param angle  New {@code angle} value
      * @param length New {@code length} value
      *
      * @since 1.0
      */
-    public void updatePolarCoords(double angle, double length) {
+    public void updatePolarCoords(double angle, double magnitude) {
         this.angle = angle;
-        this.length = Math.min(length, maxLength);
+        magnitude = Math.min(magnitude, maxMagnitude);
         updateCartesian();
 
     }
@@ -154,13 +154,13 @@ public class Vector2D {
     }
 
     /**
-     * @return The current {@code length} of this {@code Vector2D}
+     * @return The current {@code magnitude} of this {@code Vector2D}
      *
      * @since 1.0
      */
-    public double getLength() {
+    public double getMagnitude() {
         updatePolar();
-        return length;
+        return magnitude;
     }
 
     /**
@@ -174,25 +174,25 @@ public class Vector2D {
     }
 
     /**
-     * @return The {@code maxLength} of this {@code Vector2D}
+     * @return The {@code maxMagnitude} of this {@code Vector2D}
      *
      * @since 1.0
      */
     public double getMax() {
-        return maxLength;
+        return maxMagnitude;
     }
 
     /**
-     * Updates the {@code angle} and {@code length} of this {@code Vector2D}
+     * Updates the {@code angle} and {@code magnitude} of this {@code Vector2D}
      *
      * @since 1.0
      */
     private void updatePolar() {
         this.angle = Math.atan2(dy, dx);
-        if (maxLength != 0) {
-            length = Math.min(calcRawLength(dx, dy), maxLength);
+        if (maxMagnitude != 0) {
+            magnitude = Math.min(calcRawMagnitude(dx, dy), maxMagnitude);
         } else {
-            length = calcRawLength(dx, dy);
+            magnitude = calcRawMagnitude(dx, dy);
         }
     }
 
@@ -202,7 +202,7 @@ public class Vector2D {
      * @since 1.0
      */
     private void updateCartesian() {
-        this.dx = length * Math.cos(angle);
-        this.dy = length * Math.sin(angle);
+        this.dx = magnitude * Math.cos(angle);
+        this.dy = magnitude * Math.sin(angle);
     }
 }
