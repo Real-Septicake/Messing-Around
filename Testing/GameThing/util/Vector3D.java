@@ -57,12 +57,13 @@ public class Vector3D {
     }
 
     /**
-     * Creates a {@code Vector3D} with specified {@code magnitude}, {@code theta}, and
+     * Creates a {@code Vector3D} with specified {@code magnitude}, {@code theta},
+     * and
      * {@code phi} values
      * 
      * @param magnitude {@code magnitude} value
-     * @param theta  {@code theta} vlue
-     * @param phi    {@code phi} value
+     * @param theta     {@code theta} vlue
+     * @param phi       {@code phi} value
      *
      * @since 1.0
      */
@@ -140,8 +141,8 @@ public class Vector3D {
      * {@code phi} values
      * 
      * @param magnitude New {@code magnitude} value
-     * @param theta  New {@code theta} value
-     * @param phi    New {@code phi} value
+     * @param theta     New {@code theta} value
+     * @param phi       New {@code phi} value
      */
     public void updateSphericalCoords(double magnitude, double theta, double phi) {
         if (maxMagnitude != 0) {

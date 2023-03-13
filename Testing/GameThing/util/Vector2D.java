@@ -49,7 +49,7 @@ public class Vector2D {
     /**
      * Create a {@code Vector2D} with specified {@code angle} and {@code magnitude}
      * 
-     * @param angle  Angle of new {@code Vector2D}
+     * @param angle     Angle of new {@code Vector2D}
      * @param magniture Magnitude of new {@code Vector2D}
      *
      * @since 1.0
@@ -119,7 +119,8 @@ public class Vector2D {
     }
 
     /**
-     * Update this {@code Vector2D} with new {@code angle} and {@code magnitude} values
+     * Update this {@code Vector2D} with new {@code angle} and {@code magnitude}
+     * values
      * 
      * @param angle  New {@code angle} value
      * @param length New {@code length} value
