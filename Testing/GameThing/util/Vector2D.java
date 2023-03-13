@@ -6,13 +6,15 @@ package GameThing.util;
  * @since 1.0
  * @version 1.1 (3/13/23)
  */
-//TODO: Seperate Double and Float precision
+// TODO: Seperate Double and Float precision
 public class Vector2D {
 
     /**
      * Maximum allowed {@code length} of the {@code Vector2D} object
      * 
-     * <p>0 is the default value and does not restrict the {@code length}</p>
+     * <p>
+     * 0 is the default value and does not restrict the {@code length}
+     * </p>
      */
     private double maxLength = 0;
 
@@ -41,17 +43,18 @@ public class Vector2D {
      * 
      * @since 1.0
      */
-    public Vector2D(){
+    public Vector2D() {
     }
 
     /**
      * Create a {@code Vector2D} with specified angle and length
-     * @param angle Angle of new {@code Vector2D}
+     * 
+     * @param angle  Angle of new {@code Vector2D}
      * @param length Length of new {@code Vector2D}
      *
      * @since 1.0
      */
-    public Vector2D(int length, double angle){
+    public Vector2D(int length, double angle) {
         this.length = length;
         this.angle = angle;
         updateCartesian();
@@ -59,12 +62,13 @@ public class Vector2D {
 
     /**
      * Creates a {@code Vector2D} with {@code X}, and {@code Y} offsets
+     * 
      * @param x {@code X} offset
      * @param y {@code Y} offset
      * 
      * @since 1.0
      */
-    public Vector2D(double x, double y){
+    public Vector2D(double x, double y) {
         dx = x;
         dy = y;
         updatePolar();
@@ -72,28 +76,31 @@ public class Vector2D {
 
     /**
      * Creates a {@code Vector2D} with a specified {@code maxLength} value
+     * 
      * @param max {@code maxLength} value
      *
      * @since 1.0
      */
-    public Vector2D(double max){
+    public Vector2D(double max) {
         maxLength = max;
     }
 
     /**
-     * Create a {@code Vector2D} with the same values as the specified {@code Vector2D}
+     * Create a {@code Vector2D} with the same values as the specified
+     * {@code Vector2D}
+     * 
      * @param v {@code Vector2D} to copy the values from
      *
      * @since 1.0
      */
-    public Vector2D(Vector2D v){
+    public Vector2D(Vector2D v) {
         this.dx = v.getX();
         this.dy = v.getY();
         this.maxLength = v.getMax();
         updatePolar();
     }
 
-    private double calcRawLength(double x, double y){
+    private double calcRawLength(double x, double y) {
         return Math.sqrt((x * x) + (y * y));
     }
 
@@ -105,7 +112,7 @@ public class Vector2D {
      *
      * @since 1.0
      */
-    public void updateCartesianCoords(double x, double y){
+    public void updateCartesianCoords(double x, double y) {
         dx = x;
         dy = y;
         updatePolar();
@@ -114,12 +121,12 @@ public class Vector2D {
     /**
      * Update this {@code Vector2D} with new {@code angle} and {@code length} values
      * 
-     * @param angle New {@code angle} value
+     * @param angle  New {@code angle} value
      * @param length New {@code length} value
      *
      * @since 1.0
      */
-    public void updatePolarCoords(double angle, double length){
+    public void updatePolarCoords(double angle, double length) {
         this.angle = angle;
         this.length = Math.min(length, maxLength);
         updateCartesian();
@@ -127,11 +134,11 @@ public class Vector2D {
     }
 
     /**
-     * @return The current value of the {@code X} component of this {@code Vector2D} 
+     * @return The current value of the {@code X} component of this {@code Vector2D}
      *
      * @since 1.0
      */
-    public double getX(){
+    public double getX() {
         updateCartesian();
         return dx;
     }
@@ -141,7 +148,7 @@ public class Vector2D {
      *
      * @since 1.0
      */
-    public double getY(){
+    public double getY() {
         updateCartesian();
         return dy;
     }
@@ -151,17 +158,17 @@ public class Vector2D {
      *
      * @since 1.0
      */
-    public double getLength(){
+    public double getLength() {
         updatePolar();
         return length;
     }
 
     /**
-     * @return The current {@code angle} of this {@code Vector2D} 
+     * @return The current {@code angle} of this {@code Vector2D}
      *
      * @since 1.0
      */
-    public double getAngle(){
+    public double getAngle() {
         updatePolar();
         return angle;
     }
@@ -171,7 +178,7 @@ public class Vector2D {
      *
      * @since 1.0
      */
-    public double getMax(){
+    public double getMax() {
         return maxLength;
     }
 
@@ -180,11 +187,11 @@ public class Vector2D {
      *
      * @since 1.0
      */
-    private void updatePolar(){
+    private void updatePolar() {
         this.angle = Math.atan2(dy, dx);
-        if(maxLength != 0){
+        if (maxLength != 0) {
             length = Math.min(calcRawLength(dx, dy), maxLength);
-        }else{
+        } else {
             length = calcRawLength(dx, dy);
         }
     }
@@ -194,7 +201,7 @@ public class Vector2D {
      *
      * @since 1.0
      */
-    private void updateCartesian(){
+    private void updateCartesian() {
         this.dx = length * Math.cos(angle);
         this.dy = length * Math.sin(angle);
     }
