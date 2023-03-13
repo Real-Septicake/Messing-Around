@@ -1,7 +1,5 @@
 package GameThing.util;
 
-import java.awt.Dimension;
-
 /**
  * A class that allows for the creation and use of 3D mathematical vectors
  * 
@@ -64,7 +62,7 @@ public class Vector3D {
      *
      * @since 1.0
      */
-    public Vector3D(double length, double theta, double phi){
+    public Vector3D(int length, double theta, double phi){
         this.length = length;
         this.theta = theta;
         this.phi = phi;
@@ -72,16 +70,16 @@ public class Vector3D {
     }
 
     /**
-     * Creates a {@code Vector3D} with {@code X} and {@code Y} offsets specified by the {@code Dimension}, and a {@code Z} offset
-     * @param xy {@code Dimension} specifying the {@code X} and {@code Y} offsets
+     * Creates a {@code Vector3D} with {@code X}, {@code Y}, and {@code Z} offsets
+     * @param x {@code X} offset
+     * @param y {@code Y} offset
      * @param z {@code Z} offset
      *
      * @since 1.0
      */
-    //TODO: Find a way to avoid the use of a Dimension object
-    public Vector3D(Dimension xy, double z){
-        dx = xy.getWidth();
-        dy = xy.getHeight();
+    public Vector3D(double x, double y, double z){
+        dx = x;
+        dy = y;
         dz = z;
         updateSpherical();
     }

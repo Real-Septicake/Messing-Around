@@ -1,7 +1,5 @@
 package GameThing.util;
 
-import java.awt.Dimension;
-
 /**
  * A class that allows for the creation and use of 2D mathematical vectors
  * 
@@ -47,14 +45,28 @@ public class Vector2D {
     }
 
     /**
-     * Creates a {@code Vector2D} with {@code X}, and {@code Y} offsets specified by the {@code Dimension}
+     * Create a {@code Vector2D} with specified angle and length
+     * @param angle Angle of new {@code Vector2D}
+     * @param length Length of new {@code Vector2D}
+     *
+     * @since 1.0
+     */
+    public Vector2D(int length, double angle){
+        this.length = length;
+        this.angle = angle;
+        updateCartesian();
+    }
+
+    /**
+     * Creates a {@code Vector2D} with {@code X}, and {@code Y} offsets
+     * @param x {@code X} offset
+     * @param y {@code Y} offset
      * 
      * @since 1.0
      */
-    //TODO: Find a way to avoid the use of a Dimension object
-    public Vector2D(Dimension xy){
-        dx = xy.getWidth();
-        dy = xy.getHeight();
+    public Vector2D(double x, double y){
+        dx = x;
+        dy = y;
         updatePolar();
     }
 
@@ -66,19 +78,6 @@ public class Vector2D {
      */
     public Vector2D(double max){
         maxLength = max;
-    }
-
-    /**
-     * Create a {@code Vector2D} with specified angle and length
-     * @param angle Angle of new {@code Vector2D}
-     * @param length Length of new {@code Vector2D}
-     *
-     * @since 1.0
-     */
-    public Vector2D(double angle, double length){
-        this.length = length;
-        this.angle = angle;
-        updateCartesian();
     }
 
     /**
