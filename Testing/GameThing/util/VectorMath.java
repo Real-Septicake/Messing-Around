@@ -5,6 +5,7 @@ package GameThing.util;
  * 
  * @since 1.0
  * @version 1.0 (3/13/23)
+ * @author Septicake
  */
 public abstract class VectorMath {
 

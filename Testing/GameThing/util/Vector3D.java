@@ -5,6 +5,7 @@ package GameThing.util;
  * 
  * @since 1.0
  * @version 1.3 (3/13/23)
+ * @author Septicake
  */
 // TODO: Seperate Double and Float precision
 public class Vector3D {
