@@ -68,7 +68,7 @@ public class Pew {
      * <b><i>!!! DO NOT USE OUTSIDE CLASS !!!</b></i>
      * @param vector The {@code Vector} to be applied to the Pew
      */
-    private Pew(Vector2D v, Point p){
+    private Pew(Vector2D.Double v, Point p){
         this.pos = new Point(p);
         this.vector = new Vector2D.Double(v);
         loadImage();
