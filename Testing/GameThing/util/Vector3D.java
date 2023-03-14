@@ -17,37 +17,37 @@ public class Vector3D {
      * 0 is the default value and does not restrict the {@code magnitude}
      * </p>
      */
-    private double maxMagnitude = 0;
+    protected double maxMagnitude = 0;
 
     /**
      * Magnitude of the {@code Vector3D} object
      */
-    private double magnitude = 0;
+    protected double magnitude = 0;
 
     /**
      * X component of the {@code Vector3D} object
      */
-    private double dx = 0;
+    protected double dx = 0;
 
     /**
      * Y component of the {@code Vector3D} object
      */
-    private double dy = 0;
+    protected double dy = 0;
 
     /**
      * Z component of the {@code Vector3D} object
      */
-    private double dz = 0;
+    protected double dz = 0;
 
     /**
      * Angle on the XZ plane rising from X
      */
-    private double theta = 0;
+    protected double theta = 0;
 
     /**
      * Angle on the YZ plane rising from Z
      */
-    private double phi = 0;
+    protected double phi = 0;
 
     /**
      * Creates a {@code Vector3D} with all values set to 0
