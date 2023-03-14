@@ -20,7 +20,7 @@ import GameThing.util.Vector2D;
 
 public class Pew {
     private static List<WeakReference<Pew>> instances = new ArrayList<>();
-    private Vector2D vector;
+    private Vector2D.Double vector;
     private Point pos;
     private BufferedImage image;
 
@@ -32,7 +32,7 @@ public class Pew {
      * @param pos Position that the {@code Pew} should be at
      */
     public static void createPew(double angle, Point pos){
-        Pew p = new Pew(new Vector2D(speed, angle, 0), pos);
+        Pew p = new Pew(new Vector2D.Double(speed, angle, 0), pos);
         instances.add(new java.lang.ref.WeakReference<Pew>(p));
     }
 
@@ -70,7 +70,7 @@ public class Pew {
      */
     private Pew(Vector2D v, Point p){
         this.pos = new Point(p);
-        this.vector = new Vector2D(v);
+        this.vector = new Vector2D.Double(v);
         loadImage();
     }
 

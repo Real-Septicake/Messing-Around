@@ -98,7 +98,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector2D add(Vector2D v1, Vector2D v2) {
-            return new Vector2D(v1.getX() + v2.getX(), v1.getY() + v2.getY());
+            return new Vector2D.Double(v1.getX() + v2.getX(), v1.getY() + v2.getY());
         }
 
         /**
@@ -111,7 +111,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector2D subtract(Vector2D v1, Vector2D v2) {
-            return new Vector2D(v1.getX() - v2.getX(), v1.getY() - v2.getY());
+            return new Vector2D.Double(v1.getX() - v2.getX(), v1.getY() - v2.getY());
         }
 
         /**
@@ -124,7 +124,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector2D multiply(Vector2D v1, Vector2D v2) {
-            return new Vector2D(v1.getX() * v2.getX(), v1.getY() * v2.getY());
+            return new Vector2D.Double(v1.getX() * v2.getX(), v1.getY() * v2.getY());
         }
 
         /**
@@ -137,7 +137,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector2D divide(Vector2D v1, Vector2D v2) {
-            return new Vector2D(v1.getX() / v2.getX(), v1.getY() / v2.getY());
+            return new Vector2D.Double(v1.getX() / v2.getX(), v1.getY() / v2.getY());
         }
     }
 }
