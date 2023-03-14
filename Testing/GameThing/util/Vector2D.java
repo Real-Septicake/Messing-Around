@@ -15,7 +15,7 @@ public abstract class Vector2D {
      */
     public static class Double extends Vector2D {
         /**
-         * Maximum allowed {@code magnitude} of the {@code Vector2D} object
+         * Maximum allowed {@code magnitude} of the {@code Vector2D.Double} object
          * 
          * <p>
          * 0 is the default value and does not restrict the {@code magnitude}
@@ -24,27 +24,27 @@ public abstract class Vector2D {
         protected double maxMagnitude = 0;
 
         /**
-         * Magnitude of the {@code Vector2D} object
+         * Magnitude of the {@code Vector2D.Double} object
          */
         protected double magnitude = 0;
 
         /**
-         * X component of the {@code Vector2D} object
+         * X component of the {@code Vector2D.Double} object
          */
         protected double dx = 0;
 
         /**
-         * Y component of the {@code Vector2D} object
+         * Y component of the {@code Vector2D.Double} object
          */
         protected double dy = 0;
 
         /**
-         * Angle of the {@code Vector2D} object
+         * Angle of the {@code Vector2D.Double} object
          */
         protected double angle = 0;
 
         /**
-         * Creates a {@code Vector2D} with all values set to 0
+         * Creates a {@code Vector2D.Double} with all values set to 0
          * 
          * @since 1.0
          */
@@ -52,7 +52,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Create a {@code Vector2D} with specified {@code angle}, {@code magnitude},
+         * Create a {@code Vector2D.Double} with specified {@code angle}, {@code magnitude},
          * and {@code maxMagnitude}
          * 
          * @param angle     {@code angle} of new {@code Vector2D}
@@ -70,7 +70,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Creates a {@code Vector2D} with {@code X}, and {@code Y} offsets
+         * Creates a {@code Vector2D.Double} with {@code X}, and {@code Y} offsets
          * 
          * @param x {@code X} offset
          * @param y {@code Y} offset
@@ -84,9 +84,9 @@ public abstract class Vector2D {
         }
 
         /**
-         * Creates a {@code Vector2D} with a specified {@code maxLength} value
+         * Creates a {@code Vector2D.Double} with a specified {@code maxLength} value
          * 
-         * @param max {@code maxMagnitude} of new {@code Vector2D}, where 0 means no
+         * @param max {@code maxMagnitude} of new {@code Vector2D.Double}, where 0 means no
          *            maximum
          *
          * @since 1.0
@@ -96,14 +96,14 @@ public abstract class Vector2D {
         }
 
         /**
-         * Create a {@code Vector2D} with the same values as the specified
-         * {@code Vector2D}
+         * Create a {@code Vector2D.Double} with the same values as the specified
+         * {@code Vector2D.Double}
          * 
-         * @param v {@code Vector2D} to copy the values from
+         * @param v {@code Vector2D.Double} to copy the values from
          *
          * @since 1.0
          */
-        public Double(Vector2D v) {
+        public Double(Vector2D.Double v) {
             dx = v.getX();
             dy = v.getY();
             maxMagnitude = v.getMax();
@@ -111,7 +111,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Update this {@code Vector2D} with new {@code X} and {@code Y} offsets
+         * Update this {@code Vector2D.Double} with new {@code X} and {@code Y} offsets
          * 
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
@@ -125,7 +125,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Update this {@code Vector2D} with new {@code angle} and {@code magnitude}
+         * Update this {@code Vector2D.Double} with new {@code angle} and {@code magnitude}
          * values
          * 
          * @param angle  New {@code angle} value
@@ -141,7 +141,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current value of the {@code X} component of this {@code Vector2D}
+         * @return The current value of the {@code X} component of this {@code Vector2D.Double}
          *
          * @since 1.0
          */
@@ -151,7 +151,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current value of the {@code Y} component of this {@code Vector2D}
+         * @return The current value of the {@code Y} component of this {@code Vector2D.Double}
          *
          * @since 1.0
          */
@@ -161,7 +161,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current {@code magnitude} of this {@code Vector2D}
+         * @return The current {@code magnitude} of this {@code Vector2D.Double}
          *
          * @since 1.0
          */
@@ -171,7 +171,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current {@code angle} of this {@code Vector2D}
+         * @return The current {@code angle} of this {@code Vector2D.Double}
          *
          * @since 1.0
          */
@@ -181,7 +181,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The {@code maxMagnitude} of this {@code Vector2D}
+         * @return The {@code maxMagnitude} of this {@code Vector2D.Double}
          *
          * @since 1.0
          */
@@ -212,11 +212,11 @@ public abstract class Vector2D {
     }
 
     /**
-     * Defines 2D mathematical vectors with double precision
+     * Defines 2D mathematical vectors with float precision
      */
     public static class Float extends Vector2D {
         /**
-         * Maximum allowed {@code magnitude} of the {@code Vector2D} object
+         * Maximum allowed {@code magnitude} of the {@code Vector2D.Float} object
          * 
          * <p>
          * 0 is the default value and does not restrict the {@code magnitude}
@@ -225,27 +225,27 @@ public abstract class Vector2D {
         protected float maxMagnitude = 0;
 
         /**
-         * Magnitude of the {@code Vector2D} object
+         * Magnitude of the {@code Vector2D.Float} object
          */
         protected float magnitude = 0;
 
         /**
-         * X component of the {@code Vector2D} object
+         * X component of the {@code Vector2D.Float} object
          */
         protected float dx = 0;
 
         /**
-         * Y component of the {@code Vector2D} object
+         * Y component of the {@code Vector2D.Float} object
          */
         protected float dy = 0;
 
         /**
-         * Angle of the {@code Vector2D} object
+         * Angle of the {@code Vector2D.Float} object
          */
         protected float angle = 0;
 
         /**
-         * Creates a {@code Vector2D} with all values set to 0
+         * Creates a {@code Vector2D.Float} with all values set to 0
          * 
          * @since 1.0
          */
@@ -253,7 +253,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Create a {@code Vector2D} with specified {@code angle}, {@code magnitude},
+         * Create a {@code Vector2D.Float} with specified {@code angle}, {@code magnitude},
          * and {@code maxMagnitude}
          * 
          * @param angle     {@code angle} of new {@code Vector2D}
@@ -271,7 +271,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Creates a {@code Vector2D} with {@code X}, and {@code Y} offsets
+         * Creates a {@code Vector2D.Float} with {@code X}, and {@code Y} offsets
          * 
          * @param x {@code X} offset
          * @param y {@code Y} offset
@@ -285,7 +285,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Creates a {@code Vector2D} with a specified {@code maxLength} value
+         * Creates a {@code Vector2D.Float} with a specified {@code maxLength} value
          * 
          * @param max {@code maxMagnitude} of new {@code Vector2D}, where 0 means no
          *            maximum
@@ -297,10 +297,10 @@ public abstract class Vector2D {
         }
 
         /**
-         * Create a {@code Vector2D} with the same values as the specified
-         * {@code Vector2D}
+         * Create a {@code Vector2D.Float} with the same values as the specified
+         * {@code Vector2D.Float}
          * 
-         * @param v {@code Vector2D} to copy the values from
+         * @param v {@code Vector2D.Float} to copy the values from
          *
          * @since 1.0
          */
@@ -312,7 +312,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Update this {@code Vector2D} with new {@code X} and {@code Y} offsets
+         * Update this {@code Vector2D.Float} with new {@code X} and {@code Y} offsets
          * 
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
@@ -326,7 +326,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * Update this {@code Vector2D} with new {@code angle} and {@code magnitude}
+         * Update this {@code Vector2D.Float} with new {@code angle} and {@code magnitude}
          * values
          * 
          * @param angle  New {@code angle} value
@@ -342,7 +342,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current value of the {@code X} component of this {@code Vector2D}
+         * @return The current value of the {@code X} component of this {@code Vector2D.Float}
          *
          * @since 1.0
          */
@@ -352,7 +352,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current value of the {@code Y} component of this {@code Vector2D}
+         * @return The current value of the {@code Y} component of this {@code Vector2D.Float}
          *
          * @since 1.0
          */
@@ -362,7 +362,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current {@code magnitude} of this {@code Vector2D}
+         * @return The current {@code magnitude} of this {@code Vector2D.Float}
          *
          * @since 1.0
          */
@@ -372,7 +372,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The current {@code angle} of this {@code Vector2D}
+         * @return The current {@code angle} of this {@code Vector2D.Float}
          *
          * @since 1.0
          */
@@ -382,7 +382,7 @@ public abstract class Vector2D {
         }
 
         /**
-         * @return The {@code maxMagnitude} of this {@code Vector2D}
+         * @return The {@code maxMagnitude} of this {@code Vector2D.Float}
          *
          * @since 1.0
          */
