@@ -47,16 +47,20 @@ public class Vector2D {
     }
 
     /**
-     * Create a {@code Vector2D} with specified {@code angle} and {@code magnitude}
+     * Create a {@code Vector2D} with specified {@code angle}, {@code magnitude},
+     * and {@code maxMagnitude}
      * 
-     * @param angle     Angle of new {@code Vector2D}
-     * @param magniture Magnitude of new {@code Vector2D}
+     * @param angle     {@code angle} of new {@code Vector2D}
+     * @param magniture {@code magnitude} of new {@code Vector2D}
+     * @param max       {@code maxMagnitude} of new {@code Vector2D}, where 0 means
+     *                  no maximum
      *
      * @since 1.0
      */
-    public Vector2D(int magnitude, double angle) {
+    public Vector2D(double magnitude, double angle, double max) {
         this.magnitude = magnitude;
         this.angle = angle;
+        maxMagnitude = max;
         updateCartesian();
     }
 
@@ -77,7 +81,8 @@ public class Vector2D {
     /**
      * Creates a {@code Vector2D} with a specified {@code maxLength} value
      * 
-     * @param max {@code maxMagnitude} value
+     * @param max {@code maxMagnitude} of new {@code Vector2D}, where 0 means no
+     *            maximum
      *
      * @since 1.0
      */

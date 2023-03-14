@@ -4,7 +4,7 @@ package GameThing.util;
  * A class that allows for the creation and use of 3D mathematical vectors
  * 
  * @since 1.0
- * @version 1.2 (3/13/23)
+ * @version 1.3 (3/13/23)
  */
 // TODO: Seperate Double and Float precision
 public class Vector3D {
@@ -58,19 +58,21 @@ public class Vector3D {
 
     /**
      * Creates a {@code Vector3D} with specified {@code magnitude}, {@code theta},
-     * and
-     * {@code phi} values
+     * and {@code phi} values
      * 
-     * @param magnitude {@code magnitude} value
-     * @param theta     {@code theta} vlue
-     * @param phi       {@code phi} value
+     * @param magnitude {@code magnitude} value of new {@code Vector3D}
+     * @param theta     {@code theta} value of new {@code Vector3D}
+     * @param phi       {@code phi} value of new {@code Vector3D}
+     * @param max       {@code maxMagnitude} value of new {@code Vector3D}, where 0
+     *                  means no maximum
      *
      * @since 1.0
      */
-    public Vector3D(int magnitude, double theta, double phi) {
+    public Vector3D(double magnitude, double theta, double phi, double max) {
         this.magnitude = magnitude;
         this.theta = theta;
         this.phi = phi;
+        maxMagnitude = max;
         updateCartesian();
     }
 
@@ -93,7 +95,7 @@ public class Vector3D {
     /**
      * Creates a {@code Vector3D} with a specified {@code maxLength} value
      * 
-     * @param max {@code maxMagnitude} value
+     * @param max {@code maxMagnitude} value, where 0 means no maximum
      *
      * @since 1.0
      */
