@@ -7,7 +7,6 @@ package GameThing.util;
  * @version 1.3 (3/14/23)
  * @author Septicake
  */
-// TODO: Seperate Double and Float precision
 public abstract class Vector2D {
 
     /**
