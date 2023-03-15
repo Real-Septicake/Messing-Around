@@ -4,7 +4,7 @@ package GameThing.util;
  * A class that does Vector math for both {@code Vector2D} and {@code Vector3D}
  * 
  * @since 1.0
- * @version 1.0 (3/13/23)
+ * @version 1.1 (3/14/23)
  * @author Septicake
  */
 public abstract class VectorMath {
@@ -32,7 +32,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector3D add(Vector3D v1, Vector3D v2) {
-            return new Vector3D(v1.getX() + v2.getX(), v1.getY() + v2.getY(), v1.getZ() + v2.getZ());
+            return new Vector3D.Double(v1.getX() + v2.getX(), v1.getY() + v2.getY(), v1.getZ() + v2.getZ());
         }
 
         /**
@@ -45,7 +45,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector3D subtract(Vector3D v1, Vector3D v2) {
-            return new Vector3D(v1.getX() - v2.getX(), v1.getY() - v2.getY(), v1.getZ() - v2.getZ());
+            return new Vector3D.Double(v1.getX() - v2.getX(), v1.getY() - v2.getY(), v1.getZ() - v2.getZ());
         }
 
         /**
@@ -58,7 +58,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector3D multiply(Vector3D v1, Vector3D v2) {
-            return new Vector3D(v1.getX() * v2.getX(), v1.getY() * v2.getY(), v1.getZ() * v2.getZ());
+            return new Vector3D.Double(v1.getX() * v2.getX(), v1.getY() * v2.getY(), v1.getZ() * v2.getZ());
         }
 
         /**
@@ -71,7 +71,7 @@ public abstract class VectorMath {
          * @since 1.0
          */
         public static Vector3D divide(Vector3D v1, Vector3D v2) {
-            return new Vector3D(v1.getX() / v2.getX(), v1.getY() / v2.getY(), v1.getZ() / v2.getZ());
+            return new Vector3D.Double(v1.getX() / v2.getX(), v1.getY() / v2.getY(), v1.getZ() / v2.getZ());
         }
     }
 
