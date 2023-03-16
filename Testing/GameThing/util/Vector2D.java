@@ -463,6 +463,4 @@ public abstract class Vector2D {
      * @since 1.0
      */
     abstract void updateCartesian();
-
-
 }
