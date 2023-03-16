@@ -15,7 +15,7 @@ import java.awt.Rectangle;
 import javax.imageio.ImageIO;
 
 import GameThing.Board;
-import GameThing.util.Vector2D;
+import GameThing.util.Vectors.Vector2D;
 
 public class Player {
 

@@ -1,4 +1,4 @@
-package GameThing.util;
+package GameThing.util.Vectors;
 
 /**
  * A class that allows for the creation and use of 2D mathematical vectors
@@ -55,7 +55,7 @@ public abstract class Vector2D {
          * and {@code maxMagnitude}
          * 
          * @param angle     {@code angle} of new {@code Vector2D}
-         * @param magniture {@code magnitude} of new {@code Vector2D}
+         * @param magnitude {@code magnitude} of new {@code Vector2D}
          * @param max       {@code maxMagnitude} of new {@code Vector2D}, where 0 means
          *                  no maximum
          *
@@ -128,7 +128,7 @@ public abstract class Vector2D {
          * values
          * 
          * @param angle  New {@code angle} value
-         * @param length New {@code length} value
+         * @param magnitude New {@code length} value
          *
          * @since 1.0
          */
@@ -256,7 +256,7 @@ public abstract class Vector2D {
          * and {@code maxMagnitude}
          * 
          * @param angle     {@code angle} of new {@code Vector2D}
-         * @param magniture {@code magnitude} of new {@code Vector2D}
+         * @param magnitude {@code magnitude} of new {@code Vector2D}
          * @param max       {@code maxMagnitude} of new {@code Vector2D}, where 0 means
          *                  no maximum
          *
@@ -329,7 +329,7 @@ public abstract class Vector2D {
          * values
          * 
          * @param angle  New {@code angle} value
-         * @param length New {@code length} value
+         * @param magnitude New {@code length} value
          *
          * @since 1.0
          */

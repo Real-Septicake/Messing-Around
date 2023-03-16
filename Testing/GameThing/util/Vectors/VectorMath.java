@@ -1,4 +1,4 @@
-package GameThing.util;
+package GameThing.util.Vectors;
 
 /**
  * A class that does Vector math for both {@code Vector2D} and {@code Vector3D}
@@ -157,9 +157,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the addition of two {@code Scalar.Double} objects
              * 
-             * @param v1 First {@code Scalar.Float}
-             * @param v2 Second {@code Scalar.Float}
-             * @return The sum of {@code v1} and {@code v2}
+             * @param s1 First {@code Scalar.Float}
+             * @param s2 Second {@code Scalar.Float}
+             * @return The sum of {@code s1} and {@code s2}
              * 
              * @since 1.0
              */
@@ -170,9 +170,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the subtraction of two {@code Vector2D.Double} objects
              * 
-             * @param v1 The minuend
-             * @param v2 The subtrahend
-             * @return The difference when {@code v2} is subtracted from {@code v1}
+             * @param s1 The minuend
+             * @param s2 The subtrahend
+             * @return The difference when {@code s2} is subtracted from {@code s1}
              * 
              * @since 1.0
              */
@@ -183,9 +183,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the multiplication of two {@code Scalar.Double} objects
              * 
-             * @param v1 First {@code Scalar.Double}
-             * @param v2 Second {@code Scalar.Double}
-             * @return The product of {@code v1} and {@code v2}
+             * @param s1 First {@code Scalar.Double}
+             * @param s2 Second {@code Scalar.Double}
+             * @return The product of {@code s1} and {@code s2}
              * 
              * @since 1.0
              */
@@ -196,9 +196,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the division of two {@code Scalar.Double} objects
              * 
-             * @param v1 The dividend
-             * @param v2 The divisor
-             * @return The quotient when {@code v1} is divided by {@code v2}
+             * @param s1 The dividend
+             * @param s2 The divisor
+             * @return The quotient when {@code s1} is divided by {@code s2}
              * 
              * @since 1.0
              */
@@ -356,9 +356,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the addition of two {@code Scalar.Float} objects
              * 
-             * @param v1 First {@code Scalar.Float}
-             * @param v2 Second {@code Scalar.Float}
-             * @return The sum of {@code v1} and {@code v2}
+             * @param s1 First {@code Scalar.Float}
+             * @param s2 Second {@code Scalar.Float}
+             * @return The sum of {@code s1} and {@code s2}
              * 
              * @since 1.0
              */
@@ -369,9 +369,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the subtraction of two {@code Scalar.Float} objects
              * 
-             * @param v1 The minuend
-             * @param v2 The subtrahend
-             * @return The difference when {@code v2} is subtracted from {@code v1}
+             * @param s1 The minuend
+             * @param s2 The subtrahend
+             * @return The difference when {@code s2} is subtracted from {@code s1}
              * 
              * @since 1.2
              */
@@ -382,9 +382,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the multiplication of two {@code Scalar.Float} objects
              * 
-             * @param v1 First {@code Scalar.Float}
-             * @param v2 Second {@code Scalar.Float}
-             * @return The product of {@code v1} and {@code v2}
+             * @param s1 First {@code Scalar.Float}
+             * @param s2 Second {@code Scalar.Float}
+             * @return The product of {@code s1} and {@code s2}
              * 
              * @since 1.2
              */
@@ -395,9 +395,9 @@ public abstract class VectorMath {
             /**
              * Returns the result of the division of two {@code Scalar.Float} objects
              * 
-             * @param v1 The dividend
-             * @param v2 The divisor
-             * @return The quotient when {@code v1} is divided by {@code v2}
+             * @param s1 The dividend
+             * @param s2 The divisor
+             * @return The quotient when {@code s1} is divided by {@code s2}
              * 
              * @since 1.2
              */

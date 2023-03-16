@@ -1,4 +1,4 @@
-package GameThing.util;
+package GameThing.util.Vectors;
 
 public abstract class Scalar {
     public static class Double extends Scalar {
