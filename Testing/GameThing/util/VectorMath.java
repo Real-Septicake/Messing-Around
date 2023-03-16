@@ -4,14 +4,15 @@ package GameThing.util;
  * A class that does Vector math for both {@code Vector2D} and {@code Vector3D}
  * 
  * @since 1.0
- * @version 1.1 (3/14/23)
+ * @version 1.2 (3/16/23)
  * @author Septicake
  */
 public abstract class VectorMath {
 
     public abstract class Double extends VectorMath {
         /**
-         * The {@code _3D} class allows for Vector math for {@code Vector3D.Double} objects
+         * The {@code _3D} class allows for Vector math for {@code Vector3D.Double}
+         * objects
          * 
          * @since 1.0
          */
@@ -33,7 +34,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Double add(Vector3D.Double v1, Vector3D.Double v2) {
-                return new Vector3D.Double(v1.getX() + v2.getX(), v1.getY() + v2.getY(), v1.getZ() + v2.getZ());
+                return new Vector3D.Double(v1.dx + v2.dx, v1.dy + v2.dy, v1.dz + v2.dz);
             }
 
             /**
@@ -46,11 +47,12 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Double subtract(Vector3D.Double v1, Vector3D.Double v2) {
-                return new Vector3D.Double(v1.getX() - v2.getX(), v1.getY() - v2.getY(), v1.getZ() - v2.getZ());
+                return new Vector3D.Double(v1.dx - v2.dx, v1.dy - v2.dy, v1.dz - v2.dz);
             }
 
             /**
-             * Returns the result of the multiplication of two {@code Vector3D.Double} objects
+             * Returns the result of the multiplication of two {@code Vector3D.Double}
+             * objects
              * 
              * @param v1 First {@code Vector3D.Double}
              * @param v2 Second {@code Vector3D.Double}
@@ -59,7 +61,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Double multiply(Vector3D.Double v1, Vector3D.Double v2) {
-                return new Vector3D.Double(v1.getX() * v2.getX(), v1.getY() * v2.getY(), v1.getZ() * v2.getZ());
+                return new Vector3D.Double(v1.dx * v2.dx, v1.dy * v2.dy, v1.dz * v2.dz);
             }
 
             /**
@@ -72,12 +74,13 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Double divide(Vector3D.Double v1, Vector3D.Double v2) {
-                return new Vector3D.Double(v1.getX() / v2.getX(), v1.getY() / v2.getY(), v1.getZ() / v2.getZ());
+                return new Vector3D.Double(v1.dx / v2.dx, v1.dy / v2.dy, v1.dz / v2.dz);
             }
         }
 
         /**
-         * The {@code _2D} class allows for Vector math for {@code Vector2D.Double} objects
+         * The {@code _2D} class allows for Vector math for {@code Vector2D.Double}
+         * objects
          * 
          * @since 1.0
          */
@@ -99,7 +102,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Double add(Vector2D.Double v1, Vector2D.Double v2) {
-                return new Vector2D.Double(v1.getX() + v2.getX(), v1.getY() + v2.getY());
+                return new Vector2D.Double(v1.dx + v2.dx, v1.dy + v2.dy);
             }
 
             /**
@@ -112,11 +115,12 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Double subtract(Vector2D.Double v1, Vector2D.Double v2) {
-                return new Vector2D.Double(v1.getX() - v2.getX(), v1.getY() - v2.getY());
+                return new Vector2D.Double(v1.dx - v2.dx, v1.dy - v2.dy);
             }
 
             /**
-             * Returns the result of the multiplication of two {@code Vector2D.Double} objects
+             * Returns the result of the multiplication of two {@code Vector2D.Double}
+             * objects
              * 
              * @param v1 First {@code Vector2D.Double}
              * @param v2 Second {@code Vector2D.Double}
@@ -125,7 +129,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Double multiply(Vector2D.Double v1, Vector2D.Double v2) {
-                return new Vector2D.Double(v1.getX() * v2.getX(), v1.getY() * v2.getY());
+                return new Vector2D.Double(v1.dx * v2.dx, v1.dy * v2.dy);
             }
 
             /**
@@ -138,14 +142,76 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Double divide(Vector2D.Double v1, Vector2D.Double v2) {
-                return new Vector2D.Double(v1.getX() / v2.getX(), v1.getY() / v2.getY());
+                return new Vector2D.Double(v1.dx / v2.dx, v1.dy / v2.dy);
+            }
+        }
+
+        public static class _1D extends VectorMath {
+
+            /**
+             * Don't try it
+             */
+            private _1D() {
+            }
+
+            /**
+             * Returns the result of the addition of two {@code Scalar.Double} objects
+             * 
+             * @param v1 First {@code Scalar.Float}
+             * @param v2 Second {@code Scalar.Float}
+             * @return The sum of {@code v1} and {@code v2}
+             * 
+             * @since 1.0
+             */
+            public static Scalar.Double add(Scalar.Double s1, Scalar.Double s2) {
+                return new Scalar.Double(0, s1.magnitude + s2.magnitude);
+            }
+
+            /**
+             * Returns the result of the subtraction of two {@code Vector2D.Double} objects
+             * 
+             * @param v1 The minuend
+             * @param v2 The subtrahend
+             * @return The difference when {@code v2} is subtracted from {@code v1}
+             * 
+             * @since 1.0
+             */
+            public static Scalar.Double subtract(Scalar.Double s1, Scalar.Double s2) {
+                return new Scalar.Double(0, s1.magnitude - s2.magnitude);
+            }
+
+            /**
+             * Returns the result of the multiplication of two {@code Scalar.Double} objects
+             * 
+             * @param v1 First {@code Scalar.Double}
+             * @param v2 Second {@code Scalar.Double}
+             * @return The product of {@code v1} and {@code v2}
+             * 
+             * @since 1.0
+             */
+            public static Scalar.Double multiply(Scalar.Double s1, Scalar.Double s2) {
+                return new Scalar.Double(0, s1.magnitude * s2.magnitude);
+            }
+
+            /**
+             * Returns the result of the division of two {@code Scalar.Double} objects
+             * 
+             * @param v1 The dividend
+             * @param v2 The divisor
+             * @return The quotient when {@code v1} is divided by {@code v2}
+             * 
+             * @since 1.0
+             */
+            public static Scalar.Double divide(Scalar.Double s1, Scalar.Double s2) {
+                return new Scalar.Double(0, s1.magnitude / s2.magnitude);
             }
         }
     }
 
     public abstract class Float extends VectorMath {
         /**
-         * The {@code _3D} class allows for Vector math for {@code Vector3D.Float} objects
+         * The {@code _3D} class allows for Vector math for {@code Vector3D.Float}
+         * objects
          * 
          * @since 1.0
          */
@@ -167,7 +233,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Float add(Vector3D.Float v1, Vector3D.Float v2) {
-                return new Vector3D.Float((float) (v1.getX() + v2.getX()), (float) (v1.getY() + v2.getY()), (float) (v1.getZ() + v2.getZ()));
+                return new Vector3D.Float(v1.dx + v2.dx, v1.dy + v2.dy, v1.dz + v2.dz);
             }
 
             /**
@@ -180,11 +246,12 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Float subtract(Vector3D.Float v1, Vector3D.Float v2) {
-                return new Vector3D.Float((float) (v1.getX() - v2.getX()), (float) (v1.getY() - v2.getY()), (float) (v1.getZ() - v2.getZ()));
+                return new Vector3D.Float(v1.dx - v2.dx, v1.dy - v2.dy, v1.dz - v2.dz);
             }
 
             /**
-             * Returns the result of the multiplication of two {@code Vector3D.Float} objects
+             * Returns the result of the multiplication of two {@code Vector3D.Float}
+             * objects
              * 
              * @param v1 First {@code Vector3D.Float}
              * @param v2 Second {@code Vector3D.Float}
@@ -193,7 +260,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Float multiply(Vector3D.Float v1, Vector3D.Float v2) {
-                return new Vector3D.Float((float) (v1.getX() * v2.getX()), (float) (v1.getY() * v2.getY()), (float) (v1.getZ() * v2.getZ()));
+                return new Vector3D.Float(v1.dx * v2.dx, v1.dy * v2.dy, v1.dz * v2.dz);
             }
 
             /**
@@ -206,12 +273,13 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector3D.Float divide(Vector3D.Float v1, Vector3D.Float v2) {
-                return new Vector3D.Float((float) (v1.getX() / v2.getX()), (float) (v1.getY() / v2.getY()), (float) (v1.getZ() / v2.getZ()));
+                return new Vector3D.Float(v1.dx / v2.dx, v1.dy / v2.dy, v1.dz / v2.dz);
             }
         }
 
         /**
-         * The {@code _2D} class allows for Vector math for {@code Vector2D.Float} objects
+         * The {@code _2D} class allows for Vector math for {@code Vector2D.Float}
+         * objects
          * 
          * @since 1.0
          */
@@ -233,7 +301,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Float add(Vector2D.Float v1, Vector2D.Float v2) {
-                return new Vector2D.Float((float) (v1.getX() + v2.getX()), (float) (v1.getY() + v2.getY()));
+                return new Vector2D.Float(v1.dx + v2.dx, v1.dy + v2.dy);
             }
 
             /**
@@ -246,11 +314,12 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Float subtract(Vector2D.Float v1, Vector2D.Float v2) {
-                return new Vector2D.Float((float) (v1.getX() - v2.getX()), (float) (v1.getY() - v2.getY()));
+                return new Vector2D.Float(v1.dx - v2.dx, v1.dy - v2.dy);
             }
 
             /**
-             * Returns the result of the multiplication of two {@code Vector2D.Float} objects
+             * Returns the result of the multiplication of two {@code Vector2D.Float}
+             * objects
              * 
              * @param v1 First {@code Vector2D.Float}
              * @param v2 Second {@code Vector2D.Float}
@@ -259,7 +328,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Float multiply(Vector2D.Float v1, Vector2D.Float v2) {
-                return new Vector2D.Float((float) (v1.getX() * v2.getX()), (float) (v1.getY() * v2.getY()));
+                return new Vector2D.Float(v1.dx * v2.dx, v1.dy * v2.dy);
             }
 
             /**
@@ -272,7 +341,68 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Vector2D.Float divide(Vector2D.Float v1, Vector2D.Float v2) {
-                return new Vector2D.Float((float) (v1.getX() / v2.getX()), (float) (v1.getY() / v2.getY()));
+                return new Vector2D.Float(v1.dx / v2.dx, v1.dy / v2.dy);
+            }
+        }
+
+        public static class _1D extends VectorMath {
+
+            /**
+             * Not a chance
+             */
+            private _1D() {
+            }
+
+            /**
+             * Returns the result of the addition of two {@code Scalar.Float} objects
+             * 
+             * @param v1 First {@code Scalar.Float}
+             * @param v2 Second {@code Scalar.Float}
+             * @return The sum of {@code v1} and {@code v2}
+             * 
+             * @since 1.0
+             */
+            public static Scalar.Float add(Scalar.Float s1, Scalar.Float s2) {
+                return new Scalar.Float(0, s1.magnitude + s2.magnitude);
+            }
+
+            /**
+             * Returns the result of the subtraction of two {@code Scalar.Float} objects
+             * 
+             * @param v1 The minuend
+             * @param v2 The subtrahend
+             * @return The difference when {@code v2} is subtracted from {@code v1}
+             * 
+             * @since 1.2
+             */
+            public static Scalar.Float subtract(Scalar.Float s1, Scalar.Float s2) {
+                return new Scalar.Float(0, s1.magnitude - s2.magnitude);
+            }
+
+            /**
+             * Returns the result of the multiplication of two {@code Scalar.Float} objects
+             * 
+             * @param v1 First {@code Scalar.Float}
+             * @param v2 Second {@code Scalar.Float}
+             * @return The product of {@code v1} and {@code v2}
+             * 
+             * @since 1.2
+             */
+            public static Scalar.Float multiply(Scalar.Float s1, Scalar.Float s2) {
+                return new Scalar.Float(0, s1.magnitude * s2.magnitude);
+            }
+
+            /**
+             * Returns the result of the division of two {@code Scalar.Float} objects
+             * 
+             * @param v1 The dividend
+             * @param v2 The divisor
+             * @return The quotient when {@code v1} is divided by {@code v2}
+             * 
+             * @since 1.2
+             */
+            public static Scalar.Float divide(Scalar.Float s1, Scalar.Float s2) {
+                return new Scalar.Float(0, s1.magnitude / s2.magnitude);
             }
         }
     }
