@@ -1,4 +1,4 @@
-package GameThing.util;
+package GameThing.util.Vectors;
 
 /**
  * A class that allows for the creation and use of 3D mathematical vectors
@@ -44,12 +44,12 @@ public abstract class Vector3D {
         protected double dz = 0;
 
         /**
-         * Angle on the XZ plane rising from X
+         * Angle on the YZ plane rising from Y
          */
         protected double theta = 0;
 
         /**
-         * Angle on the YZ plane rising from Z
+         * Angle on the XZ plane rising from X
          */
         protected double phi = 0;
 

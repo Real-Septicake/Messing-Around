@@ -6,7 +6,6 @@ import java.awt.MouseInfo;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.awt.Point;
-import java.awt.PointerInfo;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Dimension;
@@ -16,7 +15,7 @@ import java.awt.Rectangle;
 import javax.imageio.ImageIO;
 
 import GameThing.Board;
-import GameThing.util.Vectors.Vector2D;
+import GameThing.util.Vector2D;
 
 public class Player {
 

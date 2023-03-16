@@ -16,7 +16,7 @@ import java.io.File;
 import java.awt.geom.Line2D;
 import java.awt.Dimension;
 
-import GameThing.util.Vectors.Vector2D;
+import GameThing.util.Vector2D;
 
 public class Pew {
     private static List<WeakReference<Pew>> instances = new ArrayList<>();
@@ -66,7 +66,8 @@ public class Pew {
 
     /**
      * <b><i>!!! DO NOT USE OUTSIDE CLASS !!!</b></i>
-     * @param vector The {@code Vector} to be applied to the Pew
+     * @param v The {@code Vector} to be applied to the Pew
+     * @param p The point at which the {@code Pew} should be created
      */
     private Pew(Vector2D.Double v, Point p){
         this.pos = new Point(p);
