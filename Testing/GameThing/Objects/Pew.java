@@ -16,7 +16,7 @@ import java.io.File;
 import java.awt.geom.Line2D;
 import java.awt.Dimension;
 
-import GameThing.util.Vector2D;
+import GameThing.util.Vectors.Vector2D;
 
 public class Pew {
     private static List<WeakReference<Pew>> instances = new ArrayList<>();
