@@ -72,6 +72,16 @@ public abstract class VectorMath {
             public static Vector3D.Double divide(Vector3D.Double v1, Vector3D.Double v2) {
                 return new Vector3D.Double(v1.dx / v2.dx, v1.dy / v2.dy, v1.dz / v2.dz);
             }
+
+            public static double dotProduct(Vector3D.Double v1, Vector3D.Double v2) {
+                return (v1.dx * v2.dx) + (v1.dy * v2.dy) + (v1.dz * v2.dz);
+            }
+
+            public static Vector3D.Double crossProduct(Vector3D.Double v1, Vector3D.Double v2) {
+                return new Vector3D.Double((v1.dy * v2.dz) - (v1.dz * v2.dy),
+                        (v1.dz * v2.dx) - (v1.dx * v2.dz),
+                        (v1.dx * v2.dy) - (v1.dy * v2.dx));
+            }
         }
 
         /**
@@ -136,6 +146,10 @@ public abstract class VectorMath {
             public static Vector2D.Double divide(Vector2D.Double v1, Vector2D.Double v2) {
                 return new Vector2D.Double(v1.dx / v2.dx, v1.dy / v2.dy);
             }
+
+            public static double dotProduct(Vector2D.Double v1, Vector2D.Double v2) {
+                return (v1.dx * v2.dx) + (v1.dy * v2.dy);
+            }
         }
 
         /**
@@ -197,6 +211,10 @@ public abstract class VectorMath {
              */
             public static Scalar.Double divide(Scalar.Double s1, Scalar.Double s2) {
                 return new Scalar.Double(s1.magnitude / s2.magnitude, 0);
+            }
+
+            public static double dotProduct(Scalar.Double s1, Scalar.Double s2) {
+                return (s1.magnitude * s2.magnitude);
             }
         }
     }
@@ -264,6 +282,16 @@ public abstract class VectorMath {
             public static Vector3D.Float divide(Vector3D.Float v1, Vector3D.Float v2) {
                 return new Vector3D.Float(v1.dx / v2.dx, v1.dy / v2.dy, v1.dz / v2.dz);
             }
+
+            public static float dotProduct(Vector3D.Float v1, Vector3D.Float v2) {
+                return (v1.dx * v2.dx) + (v1.dy * v2.dy) + (v1.dz * v2.dz);
+            }
+
+            public static Vector3D.Float crossProduct(Vector3D.Float v1, Vector3D.Float v2) {
+                return new Vector3D.Float((v1.dy * v2.dz) - (v1.dz * v2.dy),
+                        (v1.dz * v2.dx) - (v1.dx * v2.dz),
+                        (v1.dx * v2.dy) - (v1.dy * v2.dx));
+            }
         }
 
         /**
@@ -328,6 +356,10 @@ public abstract class VectorMath {
             public static Vector2D.Float divide(Vector2D.Float v1, Vector2D.Float v2) {
                 return new Vector2D.Float(v1.dx / v2.dx, v1.dy / v2.dy);
             }
+
+            public static float dotProduct(Vector2D.Float v1, Vector2D.Float v2) {
+                return (v1.dx * v2.dx) + (v1.dy * v2.dy);
+            }
         }
 
         /**
@@ -389,6 +421,10 @@ public abstract class VectorMath {
              */
             public static Scalar.Float divide(Scalar.Float s1, Scalar.Float s2) {
                 return new Scalar.Float(s1.magnitude / s2.magnitude, 0);
+            }
+
+            public static float dotProduct(Scalar.Float s1, Scalar.Float s2) {
+                return (s1.magnitude * s2.magnitude);
             }
         }
     }
