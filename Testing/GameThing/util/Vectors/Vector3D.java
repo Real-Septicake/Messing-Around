@@ -43,12 +43,12 @@ public abstract class Vector3D {
         protected double dz = 0;
 
         /**
-         * Angle on the YZ plane rising from Y
+         * Angle on the YZ plane rising from Y in radians
          */
         protected double theta = 0;
 
         /**
-         * Angle on the XZ plane rising from X
+         * Angle on the XZ plane rising from X in radians
          */
         protected double phi = 0;
 
@@ -65,8 +65,8 @@ public abstract class Vector3D {
          * {@code theta}, and {@code phi} values
          *
          * @param magnitude {@code magnitude} value of new {@code Vector3D.Double}
-         * @param theta     {@code theta} value of new {@code Vector3D.Double}
-         * @param phi       {@code phi} value of new {@code Vector3D.Double}
+         * @param theta     {@code theta} value of new {@code Vector3D.Double} in radians
+         * @param phi       {@code phi} value of new {@code Vector3D.Double} in radians
          * @param max       {@code maxMagnitude} value of new {@code Vector3D.Double},
          *                  where 0 means no maximum
          * @since 1.0
@@ -145,8 +145,8 @@ public abstract class Vector3D {
          * and {@code phi} values
          *
          * @param magnitude New {@code magnitude} value
-         * @param theta     New {@code theta} value
-         * @param phi       New {@code phi} value
+         * @param theta     New {@code theta} value in radians
+         * @param phi       New {@code phi} value in radians
          */
         public void updateSphericalCoords(double magnitude, double theta, double phi) {
             if (maxMagnitude != 0) {
@@ -382,7 +382,7 @@ public abstract class Vector3D {
 
         /**
          * Update this {@code Vector3D.Float} with new {@code X}, {@code Y}, and
-         * {@code Z} offets
+         * {@code Z} offsets
          *
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
@@ -466,14 +466,14 @@ public abstract class Vector3D {
     /**
      * {@code Phi} is the angle on the YZ plane rising from Z
      *
-     * @return The current value of this {@code Vector3D}'s {@code phi} angle
+     * @return The current value of this {@code Vector3D}'s {@code phi} angle in radians
      */
     abstract double getPhi();
 
     /**
      * {@code Theta} is the angle on the XZ plane rising from X
      *
-     * @return The current value of this {@code Vector3D}'s {@code theta} angle
+     * @return The current value of this {@code Vector3D}'s {@code theta} angle in radians
      */
     abstract double getTheta();
 

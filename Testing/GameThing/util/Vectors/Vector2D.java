@@ -38,7 +38,7 @@ public abstract class Vector2D {
         protected double dy = 0;
 
         /**
-         * Angle of the {@code Vector2D.Double} object
+         * Angle of the {@code Vector2D.Double} object in radians
          */
         protected double angle = 0;
 
@@ -54,7 +54,7 @@ public abstract class Vector2D {
          * Create a {@code Vector2D.Double} with specified {@code angle}, {@code magnitude},
          * and {@code maxMagnitude}
          *
-         * @param angle     {@code angle} value of new {@code Vector2D}
+         * @param angle     {@code angle} value of new {@code Vector2D} in radians
          * @param magnitude {@code magnitude} value of new {@code Vector2D}
          * @param max       {@code maxMagnitude} value of new {@code Vector2D}, where 0 means no maximum
          * @since 1.0
