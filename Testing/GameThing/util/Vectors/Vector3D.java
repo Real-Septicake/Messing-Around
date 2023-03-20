@@ -2,10 +2,10 @@ package GameThing.util.Vectors;
 
 /**
  * A class that allows for the creation and use of 3D mathematical vectors
- * 
- * @since 1.0
- * @version 1.3 (3/13/23)
+ *
  * @author Septicake
+ * @version 1.3 (3/13/23)
+ * @since 1.0
  */
 public abstract class Vector3D {
 
@@ -15,7 +15,7 @@ public abstract class Vector3D {
     public static class Double extends Vector3D {
         /**
          * Maximum allowed {@code magnitude} of the {@code Vector3D.Double} object
-         * 
+         *
          * <p>
          * 0 is the default value and does not restrict the {@code magnitude}
          * </p>
@@ -63,13 +63,12 @@ public abstract class Vector3D {
         /**
          * Creates a {@code Vector3D.Double} with specified {@code magnitude},
          * {@code theta}, and {@code phi} values
-         * 
+         *
          * @param magnitude {@code magnitude} value of new {@code Vector3D.Double}
          * @param theta     {@code theta} value of new {@code Vector3D.Double}
          * @param phi       {@code phi} value of new {@code Vector3D.Double}
          * @param max       {@code maxMagnitude} value of new {@code Vector3D.Double},
          *                  where 0 means no maximum
-         *
          * @since 1.0
          */
         public Double(double magnitude, double theta, double phi, double max) {
@@ -83,11 +82,10 @@ public abstract class Vector3D {
         /**
          * Creates a {@code Vector3D.Double} with {@code X}, {@code Y}, and {@code Z}
          * offsets
-         * 
+         *
          * @param x {@code X} offset
          * @param y {@code Y} offset
          * @param z {@code Z} offset
-         *
          * @since 1.0
          */
         public Double(double x, double y, double z) {
@@ -98,10 +96,9 @@ public abstract class Vector3D {
         }
 
         /**
-         * Creates a {@code Vector3D.Double} with a specified {@code maxLength} value
-         * 
-         * @param max {@code maxMagnitude} value, where 0 means no maximum
+         * Creates a {@code Vector3D.Double} with a specified {@code maxMagnitude} value
          *
+         * @param max {@code maxMagnitude} value, where 0 means no maximum
          * @since 1.0
          */
         public Double(double max) {
@@ -146,7 +143,7 @@ public abstract class Vector3D {
         /**
          * Update this {@code Vector3D.Double} with new {@code length}, {@code theta},
          * and {@code phi} values
-         * 
+         *
          * @param magnitude New {@code magnitude} value
          * @param theta     New {@code theta} value
          * @param phi       New {@code phi} value
@@ -165,7 +162,7 @@ public abstract class Vector3D {
         /**
          * Update this {@code Vector3D.Double} with new {@code X}, {@code Y}, and
          * {@code Z} offets
-         * 
+         *
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
          * @param z New {@code Z} offset
@@ -239,7 +236,7 @@ public abstract class Vector3D {
     public static class Float extends Vector3D {
         /**
          * Maximum allowed {@code magnitude} of the {@code Vector3D.Float} object
-         * 
+         *
          * <p>
          * 0 is the default value and does not restrict the {@code magnitude}
          * </p>
@@ -287,13 +284,12 @@ public abstract class Vector3D {
         /**
          * Creates a {@code Vector3D.Float} with specified {@code magnitude},
          * {@code theta}, and {@code phi} values
-         * 
+         *
          * @param magnitude {@code magnitude} value of new {@code Vector3D.Float}
          * @param theta     {@code theta} value of new {@code Vector3D.Float}
          * @param phi       {@code phi} value of new {@code Vector3D.Float}
          * @param max       {@code maxMagnitude} value of new {@code Vector3D.Float},
          *                  where 0 means no maximum
-         *
          * @since 1.0
          */
         public Float(float magnitude, float theta, float phi, float max) {
@@ -307,11 +303,10 @@ public abstract class Vector3D {
         /**
          * Creates a {@code Vector3D.Float} with {@code X}, {@code Y}, and {@code Z}
          * offsets
-         * 
+         *
          * @param x {@code X} offset
          * @param y {@code Y} offset
          * @param z {@code Z} offset
-         *
          * @since 1.0
          */
         public Float(float x, float y, float z) {
@@ -323,9 +318,8 @@ public abstract class Vector3D {
 
         /**
          * Creates a {@code Vector3D.Float} with a specified {@code maxLength} value
-         * 
-         * @param max {@code maxMagnitude} value, where 0 means no maximum
          *
+         * @param max {@code maxMagnitude} value, where 0 means no maximum
          * @since 1.0
          */
         public Float(float max) {
@@ -370,7 +364,7 @@ public abstract class Vector3D {
         /**
          * Update this {@code Vector3D.Float} with new {@code length}, {@code theta},
          * and {@code phi} values
-         * 
+         *
          * @param magnitude New {@code magnitude} value
          * @param theta     New {@code theta} value
          * @param phi       New {@code phi} value
@@ -389,7 +383,7 @@ public abstract class Vector3D {
         /**
          * Update this {@code Vector3D.Float} with new {@code X}, {@code Y}, and
          * {@code Z} offets
-         * 
+         *
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
          * @param z New {@code Z} offset
@@ -471,14 +465,14 @@ public abstract class Vector3D {
 
     /**
      * {@code Phi} is the angle on the YZ plane rising from Z
-     * 
+     *
      * @return The current value of this {@code Vector3D}'s {@code phi} angle
      */
     abstract double getPhi();
 
     /**
      * {@code Theta} is the angle on the XZ plane rising from X
-     * 
+     *
      * @return The current value of this {@code Vector3D}'s {@code theta} angle
      */
     abstract double getTheta();

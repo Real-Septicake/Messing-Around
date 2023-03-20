@@ -2,10 +2,10 @@ package GameThing.util.Vectors;
 
 /**
  * A class that allows for the creation and use of 2D mathematical vectors
- * 
- * @since 1.0
- * @version 1.3 (3/14/23)
+ *
  * @author Septicake
+ * @version 1.3 (3/14/23)
+ * @since 1.0
  */
 public abstract class Vector2D {
 
@@ -15,7 +15,7 @@ public abstract class Vector2D {
     public static class Double extends Vector2D {
         /**
          * Maximum allowed {@code magnitude} of the {@code Vector2D.Double} object
-         * 
+         *
          * <p>
          * 0 is the default value and does not restrict the {@code magnitude}
          * </p>
@@ -44,7 +44,7 @@ public abstract class Vector2D {
 
         /**
          * Creates a {@code Vector2D.Double} with all values set to 0
-         * 
+         *
          * @since 1.0
          */
         public Double() {
@@ -53,12 +53,10 @@ public abstract class Vector2D {
         /**
          * Create a {@code Vector2D.Double} with specified {@code angle}, {@code magnitude},
          * and {@code maxMagnitude}
-         * 
-         * @param angle     {@code angle} of new {@code Vector2D}
-         * @param magnitude {@code magnitude} of new {@code Vector2D}
-         * @param max       {@code maxMagnitude} of new {@code Vector2D}, where 0 means
-         *                  no maximum
          *
+         * @param angle     {@code angle} value of new {@code Vector2D}
+         * @param magnitude {@code magnitude} value of new {@code Vector2D}
+         * @param max       {@code maxMagnitude} value of new {@code Vector2D}, where 0 means no maximum
          * @since 1.0
          */
         public Double(double magnitude, double angle, double max) {
@@ -70,10 +68,9 @@ public abstract class Vector2D {
 
         /**
          * Creates a {@code Vector2D.Double} with {@code X}, and {@code Y} offsets
-         * 
+         *
          * @param x {@code X} offset
          * @param y {@code Y} offset
-         * 
          * @since 1.0
          */
         public Double(double x, double y) {
@@ -84,10 +81,9 @@ public abstract class Vector2D {
 
         /**
          * Creates a {@code Vector2D.Double} with a specified {@code maxLength} value
-         * 
+         *
          * @param max {@code maxMagnitude} of new {@code Vector2D.Double}, where 0 means no
          *            maximum
-         *
          * @since 1.0
          */
         public Double(double max) {
@@ -97,9 +93,8 @@ public abstract class Vector2D {
         /**
          * Create a {@code Vector2D.Double} with the same values as the specified
          * {@code Vector2D.Double}
-         * 
-         * @param v {@code Vector2D.Double} to copy the values from
          *
+         * @param v {@code Vector2D.Double} to copy the values from
          * @since 1.0
          */
         public Double(Vector2D.Double v) {
@@ -111,10 +106,9 @@ public abstract class Vector2D {
 
         /**
          * Update this {@code Vector2D.Double} with new {@code X} and {@code Y} offsets
-         * 
+         *
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
-         *
          * @since 1.0
          */
         public void updateCartesianCoords(double x, double y) {
@@ -126,10 +120,9 @@ public abstract class Vector2D {
         /**
          * Update this {@code Vector2D.Double} with new {@code angle} and {@code magnitude}
          * values
-         * 
-         * @param angle  New {@code angle} value
-         * @param magnitude New {@code length} value
          *
+         * @param angle     New {@code angle} value
+         * @param magnitude New {@code length} value
          * @since 1.0
          */
         public void updatePolarCoords(double angle, double magnitude) {
@@ -141,7 +134,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current value of the {@code X} component of this {@code Vector2D.Double}
-         *
          * @since 1.0
          */
         public double getX() {
@@ -151,7 +143,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current value of the {@code Y} component of this {@code Vector2D.Double}
-         *
          * @since 1.0
          */
         public double getY() {
@@ -161,7 +152,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current {@code magnitude} of this {@code Vector2D.Double}
-         *
          * @since 1.0
          */
         public double getMagnitude() {
@@ -171,7 +161,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current {@code angle} of this {@code Vector2D.Double}
-         *
          * @since 1.0
          */
         public double getAngle() {
@@ -181,7 +170,6 @@ public abstract class Vector2D {
 
         /**
          * @return The {@code maxMagnitude} of this {@code Vector2D.Double}
-         *
          * @since 1.0
          */
         public double getMax() {
@@ -202,6 +190,7 @@ public abstract class Vector2D {
 
         /**
          * {@inheritDoc}
+         *
          * @since 1.3
          */
         void updateCartesian() {
@@ -216,7 +205,7 @@ public abstract class Vector2D {
     public static class Float extends Vector2D {
         /**
          * Maximum allowed {@code magnitude} of the {@code Vector2D.Float} object
-         * 
+         *
          * <p>
          * 0 is the default value and does not restrict the {@code magnitude}
          * </p>
@@ -245,7 +234,7 @@ public abstract class Vector2D {
 
         /**
          * Creates a {@code Vector2D.Float} with all values set to 0
-         * 
+         *
          * @since 1.0
          */
         public Float() {
@@ -254,12 +243,11 @@ public abstract class Vector2D {
         /**
          * Create a {@code Vector2D.Float} with specified {@code angle}, {@code magnitude},
          * and {@code maxMagnitude}
-         * 
+         *
          * @param angle     {@code angle} of new {@code Vector2D}
          * @param magnitude {@code magnitude} of new {@code Vector2D}
          * @param max       {@code maxMagnitude} of new {@code Vector2D}, where 0 means
          *                  no maximum
-         *
          * @since 1.0
          */
         public Float(float magnitude, float angle, float max) {
@@ -271,10 +259,9 @@ public abstract class Vector2D {
 
         /**
          * Creates a {@code Vector2D.Float} with {@code X}, and {@code Y} offsets
-         * 
+         *
          * @param x {@code X} offset
          * @param y {@code Y} offset
-         * 
          * @since 1.0
          */
         public Float(float x, float y) {
@@ -285,10 +272,9 @@ public abstract class Vector2D {
 
         /**
          * Creates a {@code Vector2D.Float} with a specified {@code maxLength} value
-         * 
+         *
          * @param max {@code maxMagnitude} of new {@code Vector2D}, where 0 means no
          *            maximum
-         *
          * @since 1.0
          */
         public Float(float max) {
@@ -298,9 +284,8 @@ public abstract class Vector2D {
         /**
          * Create a {@code Vector2D.Float} with the same values as the specified
          * {@code Vector2D.Float}
-         * 
-         * @param v {@code Vector2D.Float} to copy the values from
          *
+         * @param v {@code Vector2D.Float} to copy the values from
          * @since 1.0
          */
         public Float(Vector2D.Float v) {
@@ -312,10 +297,9 @@ public abstract class Vector2D {
 
         /**
          * Update this {@code Vector2D.Float} with new {@code X} and {@code Y} offsets
-         * 
+         *
          * @param x New {@code X} offset
          * @param y New {@code Y} offset
-         *
          * @since 1.0
          */
         public void updateCartesianCoords(float x, float y) {
@@ -327,10 +311,9 @@ public abstract class Vector2D {
         /**
          * Update this {@code Vector2D.Float} with new {@code angle} and {@code magnitude}
          * values
-         * 
-         * @param angle  New {@code angle} value
-         * @param magnitude New {@code length} value
          *
+         * @param angle     New {@code angle} value
+         * @param magnitude New {@code length} value
          * @since 1.0
          */
         public void updatePolarCoords(float angle, float magnitude) {
@@ -342,7 +325,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current value of the {@code X} component of this {@code Vector2D.Float}
-         *
          * @since 1.0
          */
         public double getX() {
@@ -352,7 +334,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current value of the {@code Y} component of this {@code Vector2D.Float}
-         *
          * @since 1.0
          */
         public double getY() {
@@ -362,7 +343,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current {@code magnitude} of this {@code Vector2D.Float}
-         *
          * @since 1.0
          */
         public double getMagnitude() {
@@ -372,7 +352,6 @@ public abstract class Vector2D {
 
         /**
          * @return The current {@code angle} of this {@code Vector2D.Float}
-         *
          * @since 1.0
          */
         public double getAngle() {
@@ -382,7 +361,6 @@ public abstract class Vector2D {
 
         /**
          * @return The {@code maxMagnitude} of this {@code Vector2D.Float}
-         *
          * @since 1.0
          */
         public double getMax() {
@@ -403,6 +381,7 @@ public abstract class Vector2D {
 
         /**
          * {@inheritDoc}
+         *
          * @since 1.3
          */
         void updateCartesian() {
@@ -417,35 +396,30 @@ public abstract class Vector2D {
 
     /**
      * @return The current value of the {@code X} component of this {@code Vector2D}
-     *
      * @since 1.0
      */
     abstract double getX();
 
     /**
      * @return The current value of the {@code Y} component of this {@code Vector2D}
-     *
      * @since 1.0
      */
     abstract double getY();
 
     /**
      * @return The current {@code magnitude} of this {@code Vector2D}
-     *
      * @since 1.0
      */
     abstract double getMagnitude();
 
     /**
      * @return The current {@code angle} of this {@code Vector2D}
-     *
      * @since 1.0
      */
     abstract double getAngle();
 
     /**
      * @return The {@code maxMagnitude} of this {@code Vector2D}
-     *
      * @since 1.0
      */
     abstract double getMax();
