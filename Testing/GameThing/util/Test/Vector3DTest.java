@@ -4,6 +4,7 @@ import GameThing.util.Vectors.Vector3D;
 
 public class Vector3DTest {
     //TODO: Spherical to Cartesian is fucked oh god help
+    //I DON'T KNOW WHAT I DID WRONG I NEED A NEW GOD TO PRAY TO, open to suggestions
 
     public static void main(String[] args){
         Vector3D.Double computed = new Vector3D.Double(-14, 12, 1);
