@@ -12,7 +12,7 @@ public abstract class Scalar {
             maxMagnitude = max;
         }
 
-        public Double(double max, double magnitude) {
+        public Double(double magnitude, double max) {
             this.magnitude = magnitude;
             maxMagnitude = max;
         }

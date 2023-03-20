@@ -164,7 +164,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Scalar.Double add(Scalar.Double s1, Scalar.Double s2) {
-                return new Scalar.Double(0, s1.magnitude + s2.magnitude);
+                return new Scalar.Double(s1.magnitude + s2.magnitude, 0);
             }
 
             /**
@@ -177,7 +177,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Scalar.Double subtract(Scalar.Double s1, Scalar.Double s2) {
-                return new Scalar.Double(0, s1.magnitude - s2.magnitude);
+                return new Scalar.Double(s1.magnitude - s2.magnitude, 0);
             }
 
             /**
@@ -190,7 +190,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Scalar.Double multiply(Scalar.Double s1, Scalar.Double s2) {
-                return new Scalar.Double(0, s1.magnitude * s2.magnitude);
+                return new Scalar.Double(s1.magnitude * s2.magnitude, 0);
             }
 
             /**
@@ -203,7 +203,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Scalar.Double divide(Scalar.Double s1, Scalar.Double s2) {
-                return new Scalar.Double(0, s1.magnitude / s2.magnitude);
+                return new Scalar.Double(s1.magnitude / s2.magnitude, 0);
             }
         }
     }
@@ -363,7 +363,7 @@ public abstract class VectorMath {
              * @since 1.0
              */
             public static Scalar.Float add(Scalar.Float s1, Scalar.Float s2) {
-                return new Scalar.Float(0, s1.magnitude + s2.magnitude);
+                return new Scalar.Float(s1.magnitude + s2.magnitude, 0);
             }
 
             /**
@@ -376,7 +376,7 @@ public abstract class VectorMath {
              * @since 1.2
              */
             public static Scalar.Float subtract(Scalar.Float s1, Scalar.Float s2) {
-                return new Scalar.Float(0, s1.magnitude - s2.magnitude);
+                return new Scalar.Float(s1.magnitude - s2.magnitude, 0);
             }
 
             /**
@@ -389,7 +389,7 @@ public abstract class VectorMath {
              * @since 1.2
              */
             public static Scalar.Float multiply(Scalar.Float s1, Scalar.Float s2) {
-                return new Scalar.Float(0, s1.magnitude * s2.magnitude);
+                return new Scalar.Float(s1.magnitude * s2.magnitude, 0);
             }
 
             /**
@@ -402,7 +402,7 @@ public abstract class VectorMath {
              * @since 1.2
              */
             public static Scalar.Float divide(Scalar.Float s1, Scalar.Float s2) {
-                return new Scalar.Float(0, s1.magnitude / s2.magnitude);
+                return new Scalar.Float(s1.magnitude / s2.magnitude, 0);
             }
         }
     }
